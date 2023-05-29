@@ -6,7 +6,7 @@
 #    By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 15:44:30 by yiwong            #+#    #+#              #
-#    Updated: 2023/05/29 18:18:43 by yiwong           ###   ########.fr        #
+#    Updated: 2023/05/29 18:19:49 by yiwong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SRC = src/main.c \
 OBJ = $(SRC:.c=.o)
 
 LIBS = -Ldep/lib/libft -lft -Ldep/lib/ft_printf -lftprintf \
-	-Ldep/lib/lib_me42 -lme42 -Ldep/mlx -lmlx
+	-Ldep/lib/lib_me42 -lme42
 
 NAME = so_long
 
@@ -31,7 +31,6 @@ $(NAME): $(OBJ)
 	@make -sC dep/lib/libft
 	@make -sC dep/lib/ft_printf
 	@make -sC dep/lib/lib_me42
-	@make -sC dep/mlx
 	@$(CC) $(CFLAGS) $(OBJ) $(LIBS) -o $(NAME)
 
 %.o: %.c
