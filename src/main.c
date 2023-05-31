@@ -6,7 +6,7 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:55:54 by yiwong            #+#    #+#             */
-/*   Updated: 2023/05/30 18:35:29 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/05/31 16:47:36 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,27 @@ typedef struct	s_data {
 	int		endian;
 }				t_data;
 
+typedef struct	s_vars {
+	void	*mlx;
+	void	*win;
+}				t_vars;
+
 #define colour1 0x000000
 #define colour2 0xFFFFFF
 
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+int		key_pressed(int keycode, t_vars *vars);
 
 
 int	main(void)
 {
-	void	*mlx;
-	void	*mlx_win;
+	t_vars	vars;
 	t_data	img;
 
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 1920, 1080, "It's gamer time");
-	img.img = mlx_new_image(mlx, 1920, 1080);
+	vars.mlx = mlx_init();
+	vars.win = mlx_new_window(vars.mlx, 1920, 1080, "It's gamer time");
+	img.img = mlx_new_image(vars.mlx, 1920, 1080);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel,
 		&img.line_length, &img.endian);
 	my_mlx_pixel_put(&img, 0, 0, colour2);
@@ -47,8 +52,9 @@ int	main(void)
 	my_mlx_pixel_put(&img, 2, 1, colour2);
 	my_mlx_pixel_put(&img, 2, 0, colour2);
 	my_mlx_pixel_put(&img, 1, 0, colour2);
-	mlx_put_image_to_window(mlx, mlx_win, img.img, 10, 10);
-	mlx_loop(mlx);
+	mlx_put_image_to_window(vars.mlx, vars.win, img.img, 10, 10);
+	mlx_hook(vars.win, 2, 1L<<0, key_pressed, &vars);
+	mlx_loop(vars.mlx);
 	return (0);
 }
 
@@ -58,4 +64,12 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 
 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
 	*(unsigned int*)dst = color;
+}
+
+
+int	key_pressed(int keycode, t_vars *vars)
+{
+	ft_printf("%i", keycode);
+	mlx_destroy_window(vars->mlx, vars->win);
+	return (0);
 }
