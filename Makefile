@@ -6,46 +6,79 @@
 #    By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 15:44:30 by yiwong            #+#    #+#              #
-#    Updated: 2023/05/30 16:56:36 by yiwong           ###   ########.fr        #
+#    Updated: 2023/06/07 18:52:35 by yiwong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-
-CC = gcc
+CC = gcc -O3
 
 CFLAGS = -Wall -Wextra -Werror -g
 
 SRC = src/main.c \
-		src/so_long.c
+		src/ready_check.c \
+		src/init.c \
+		src/read_map.c \
+		src/so_long.c \
+		src/error.c \
+		src/quit.c \
+		$(GNL)
+
+GNL = dep/lib/get_next_line/get_next_line.c \
+		dep/lib/get_next_line/get_next_line_utils.c
 
 OBJ = $(SRC:.c=.o)
 
-LIBS = -Ldep/lib/libft -lft -Ldep/lib/ft_printf -lftprintf \
-	-Ldep/lib/lib_me42 -lme42 -Ldep/mlx -lmlx
+MLX_DIR = dep/lib/mlx_opengl
 
-MAC = -framework OpenGL -framework AppKit
+LIB_OS = -Ldep/lib/mlx_opengl -lmlx
+
+OS_FLAGS = -Imlx
+
+API = -framework OpenGL -framework AppKit
+
+LIBS = -Ldep/lib/libft -lft -Ldep/lib/ft_printf -lftprintf \
+	-Ldep/lib/lib_me42 -lme42 $(LIB_OS)
 
 NAME = so_long
+
+SHELL = bash
+
+BLUE=\033[0;34m
+GREEN = \033[0;92m
+PURPLE = \033[0;35m
+END = \033[0m
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
+	@echo -ne "$(PURPLE)Making $(END)"
+	@make -sC $(MLX_DIR)
+	@echo -ne "$(PURPLE)███$(END)"
 	@make -sC dep/lib/libft
+	@echo -ne "$(PURPLE)████$(END)"
 	@make -sC dep/lib/ft_printf
+	@echo -ne "$(PURPLE)████$(END)"
 	@make -sC dep/lib/lib_me42
-	@make -C dep/mlx
-	@$(CC) $(CFLAGS) $(OBJ) $(LIBS) $(MAC) -o $(NAME)
-
+	@echo -e "$(PURPLE)██████$(END)"
+	@$(CC) $(CFLAGS) $(OBJ) $(LIBS) $(API) -o $(NAME)
+	@echo -e "$(GREEN)Make done!$(END)"
 
 %.o: %.c
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) $(OS_FLAGS) -c $< -o $@
 
 clean:
+	@echo -ne "$(BLUE)Cleaning $(END)"
+	@echo -ne "$(BLUE)███$(END)"
+	@make clean -sC $(MLX_DIR)
+	@echo -ne "$(BLUE)███$(END)"
 	@make fclean -sC dep/lib/libft
+	@echo -ne "$(BLUE)███$(END)"
 	@make fclean -sC dep/lib/ft_printf
+	@echo -ne "$(BLUE)███$(END)"
 	@make fclean -sC dep/lib/lib_me42
-	@make clean -sC dep/mlx
+	@echo -e "$(BLUE)███$(END)"
 	@rm -f $(OBJ)
+	@echo -e "$(GREEN)Cleaning done!$(END)"
 
 fclean: clean
 	@rm -f $(NAME)
