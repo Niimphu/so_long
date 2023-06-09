@@ -6,13 +6,13 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 17:15:08 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/09 18:27:06 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/09 20:57:26 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../dep/so_long.h"
 
-int map_exists(char *name);
+int	map_exists(char *name);
 
 int	arg_check(int argc, char **argv)
 {
@@ -28,10 +28,10 @@ int	arg_check(int argc, char **argv)
 	return (OK);
 }
 
-int map_check(char *name)
+int	map_check(char *name)
 {
 	const int	fd = map_exists(name);
-	int 		error_code;
+	int			error_code;
 	char		**map;
 
 	error_code = OK;
@@ -39,17 +39,24 @@ int map_check(char *name)
 		return (MAP_NAME);
 	map = read_map(fd);
 	if (!(map))
-		error_code = FAIL;
-	else if (!valid_map_check(map))
+		error_code = BAD_MAP;
+	else if (!is_map_valid(map))
 		error_code = BAD_MAP;
 	close(fd);
+	free_ppointer(map);
 	return (error_code);
 }
 
-int map_exists(char *name)
+int	map_exists(char *name)
 {
-	const int	fd = open(name, O_RDONLY, 0666);
-
+	int		fd;
+	char	*temp;
+	
+	temp = ft_strjoin(name, ".ber");
+	name = ft_strjoin("maps/", temp);
+	free_pointer(temp);
+	fd = open(name, O_RDONLY, 0666);
+	free_pointer(name);
 	if (fd < 0)
 		return (0);
 	return (fd);
