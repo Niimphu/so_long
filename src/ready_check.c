@@ -6,7 +6,7 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 17:15:08 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/09 20:57:26 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/09 21:02:20 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	map_exists(char *name)
 {
 	int		fd;
 	char	*temp;
-	
+
 	temp = ft_strjoin(name, ".ber");
 	name = ft_strjoin("maps/", temp);
 	free_pointer(temp);
