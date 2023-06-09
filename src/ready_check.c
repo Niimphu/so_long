@@ -6,15 +6,13 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 17:15:08 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/07 20:18:54 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/09 18:27:06 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../dep/so_long.h"
 
 int map_exists(char *name);
-int map_check(char *name);
-int	rectangle_check(char **map);
 
 int	arg_check(int argc, char **argv)
 {
@@ -30,15 +28,6 @@ int	arg_check(int argc, char **argv)
 	return (OK);
 }
 
-int map_exists(char *name)
-{
-	const int	fd = open(name, O_RDONLY, 0666);
-
-	if (fd < 0)
-		return (0);
-	return (fd);
-}
-
 int map_check(char *name)
 {
 	const int	fd = map_exists(name);
@@ -51,25 +40,17 @@ int map_check(char *name)
 	map = read_map(fd);
 	if (!(map))
 		error_code = FAIL;
-	else if (!rectangle_check(map))
-		error_code = NOT_RECTANGLE;
-	// else if (!valid_map_check(map))
-	// 	error_code = BAD_MAP;
+	else if (!valid_map_check(map))
+		error_code = BAD_MAP;
 	close(fd);
 	return (error_code);
 }
 
-int	rectangle_check(char **map)
+int map_exists(char *name)
 {
-	int		i;
-	size_t	count;
+	const int	fd = open(name, O_RDONLY, 0666);
 
-	i = 0;
-	count = ft_strlen(map[i++]);
-	while (map[i])
-	{
-		if (ft_strlen(map[i++]) != count)
-			return (0);
-	}
-	return (1);
+	if (fd < 0)
+		return (0);
+	return (fd);
 }
