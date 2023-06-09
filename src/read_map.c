@@ -6,7 +6,7 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 18:52:36 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/07 20:16:05 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/09 20:56:36 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	**read_map(int fd)
 	int		i;
 
 	line = get_next_line(fd);
+	if (!line)
+		return (NULL);
 	i = 0;
 	map = (char **)malloc(sizeof(char *) * 10);
 	while (line)
