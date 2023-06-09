@@ -6,7 +6,7 @@
 #    By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 15:44:30 by yiwong            #+#    #+#              #
-#    Updated: 2023/06/07 18:52:35 by yiwong           ###   ########.fr        #
+#    Updated: 2023/06/09 20:47:25 by yiwong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,11 @@ SRC = src/main.c \
 		src/ready_check.c \
 		src/init.c \
 		src/read_map.c \
+		src/map_checkers.c \
 		src/so_long.c \
 		src/error.c \
 		src/quit.c \
+		src/map_utils.c \
 		$(GNL)
 
 GNL = dep/lib/get_next_line/get_next_line.c \
@@ -52,6 +54,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@echo -ne "$(PURPLE)Making $(END)"
+	@echo -ne "$(PURPLE)███$(END)"
 	@make -sC $(MLX_DIR)
 	@echo -ne "$(PURPLE)███$(END)"
 	@make -sC dep/lib/libft
@@ -59,7 +62,7 @@ $(NAME): $(OBJ)
 	@make -sC dep/lib/ft_printf
 	@echo -ne "$(PURPLE)████$(END)"
 	@make -sC dep/lib/lib_me42
-	@echo -e "$(PURPLE)██████$(END)"
+	@echo -e "$(PURPLE)███$(END)"
 	@$(CC) $(CFLAGS) $(OBJ) $(LIBS) $(API) -o $(NAME)
 	@echo -e "$(GREEN)Make done!$(END)"
 
