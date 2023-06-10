@@ -6,7 +6,7 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 17:20:35 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/09 18:43:59 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/10 14:14:06 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	error(int error_code)
 	if (error_code == ARGN)
 		write(2, "Error\nToo many arguments\n", 25);
 	else if (error_code == MAP_NAME)
-		write(2, "Error\nInvalid file name argument\n", 23);
+		write(2, "Error\nInvalid argument\n", 23);
 	else if (error_code == BAD_MAP)
 		write(2, "Error\nInvalid map\n", 18);
 	else
