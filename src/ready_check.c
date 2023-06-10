@@ -6,13 +6,11 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 17:15:08 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/09 21:02:20 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/10 18:46:07 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../dep/so_long.h"
-
-int	map_exists(char *name);
 
 int	arg_check(int argc, char **argv)
 {
@@ -30,7 +28,7 @@ int	arg_check(int argc, char **argv)
 
 int	map_check(char *name)
 {
-	const int	fd = map_exists(name);
+	const int	fd = open_map(name);
 	int			error_code;
 	char		**map;
 
@@ -47,7 +45,7 @@ int	map_check(char *name)
 	return (error_code);
 }
 
-int	map_exists(char *name)
+int	open_map(char *name)
 {
 	int		fd;
 	char	*temp;

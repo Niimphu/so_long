@@ -6,20 +6,20 @@
 #    By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 15:44:30 by yiwong            #+#    #+#              #
-#    Updated: 2023/06/09 20:47:25 by yiwong           ###   ########.fr        #
+#    Updated: 2023/06/10 16:55:53 by yiwong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc -O3
 
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 
 SRC = src/main.c \
 		src/ready_check.c \
-		src/init.c \
 		src/read_map.c \
 		src/map_checkers.c \
 		src/so_long.c \
+		src/input_handler.c \
 		src/error.c \
 		src/quit.c \
 		src/map_utils.c \

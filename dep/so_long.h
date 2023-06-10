@@ -6,7 +6,7 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:54:16 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/09 20:22:17 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/10 16:53:48 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,17 @@ typedef struct	s_data {
 	int		endian;
 }				t_data;
 
+typedef struct	s_map {
+	char	*name;
+	char	**map;
+	int		width;
+	int		height;
+}				t_map;
+
 typedef struct	s_vars {
 	void	*mlx;
 	void	*win;
+	t_map	*map_data;
 }				t_vars;
 
 enum	e_X11Events {
@@ -68,14 +76,16 @@ enum	e_errorcodes {
 
 int		arg_check(int argc, char **argv);
 
-void	error(int error_code);
+int		open_map(char *name);
 char	**read_map(int fd);
 int		map_check(char *name);
 int		is_map_valid(char **map);
 
+int		key_pressed(int keycode, t_vars *vars);
 
-void 	quit(t_vars *vars);
 int		window_closed(t_vars *vars);
+void	error(int error_code);
+void 	quit(t_vars *vars);
 
 void	print_map(char **map);
 int		*locate_first(char **map, char c, int coords[2]);
