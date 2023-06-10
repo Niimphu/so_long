@@ -6,7 +6,7 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 19:08:58 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/09 20:43:01 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/10 14:45:17 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,11 @@ char	**propogate_path(char **map)
 	j = locate_first(map, 'P', coords)[1];
 	if (map[i][j + 1] != '1' && map[i][j + 1] != 'V' && map[i][j + 1] != 'P')
 		map[i][j + 1] = 'P';
-	if (map[i][j - 1] != '1' && map[i][j - 1] != 'V' && map[i][j + 1] != 'P')
+	if (map[i][j - 1] != '1' && map[i][j - 1] != 'V' && map[i][j - 1] != 'P')
 		map[i][j - 1] = 'P';
-	if (map[i + 1][j] != '1' && map[i + 1][j] != 'V' && map[i][j + 1] != 'P')
+	if (map[i + 1][j] != '1' && map[i + 1][j] != 'V' && map[i + 1][j] != 'P')
 		map[i + 1][j] = 'P';
-	if (map[i - 1][j] != '1' && map[i - 1][j] != 'V' && map[i][j + 1] != 'P')
+	if (map[i - 1][j] != '1' && map[i - 1][j] != 'V' && map[i - 1][j] != 'P')
 		map[i - 1][j] = 'P';
 	map[i][j] = 'V';
 	return (map);
