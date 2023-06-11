@@ -6,7 +6,7 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 15:57:25 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/10 15:04:55 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/11 15:39:58 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,16 +95,12 @@ int	has_continuous_border(char **map)
 
 int	has_valid_path(char **map)
 {
-	int	i;
-	int	j;
 	int	coords[2];
 	int	done;
 
 	done = 0;
 	if (!locate_first(map, 'P', coords))
 		return (FALSE);
-	i = locate_first(map, 'P', coords)[0];
-	j = locate_first(map, 'P', coords)[1];
 	while (!done)
 	{
 		if ((!locate_first(map, 'E', coords) && !locate_first(map, 'C', coords))
