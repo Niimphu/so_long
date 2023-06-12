@@ -6,7 +6,7 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 17:20:35 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/10 14:14:06 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/11 15:42:33 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,19 @@
 
 void	error(int error_code)
 {
-	write(2, RED, 8);
+	int	ret;
+
+	ret = write(2, RED, 8);
 	if (error_code == ARGN)
-		write(2, "Error\nToo many arguments\n", 25);
+		ret = write(2, "Error\nToo many arguments\n", 25);
 	else if (error_code == MAP_NAME)
-		write(2, "Error\nInvalid argument\n", 23);
+		ret = write(2, "Error\nInvalid argument\n", 23);
 	else if (error_code == BAD_MAP)
-		write(2, "Error\nInvalid map\n", 18);
+		ret = write(2, "Error\nInvalid map\n", 18);
 	else
-		write(2, "Error\nUndefined\n", 16);
-	write(2, RESET, 7);
+		ret = write(2, "Error\nUndefined\n", 16);
+	ret = write(2, RESET, 7);
+	if (ret < 0)
+		exit(error_code);
 	exit(error_code);
 }
