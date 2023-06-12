@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input_handler.c                                    :+:      :+:    :+:   */
+/*   mlx_destroy_display.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: mg <mg@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/10 15:30:35 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/12 16:12:18 by yiwong           ###   ########.fr       */
+/*   Created: 2020/10/03 18:56:35 by mg                #+#    #+#             */
+/*   Updated: 2020/10/04 01:55:35 by mg               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../dep/so_long.h"
+#include "mlx_int.h"
 
-int	key_pressed(int keycode, t_vars *vars)
+int	mlx_destroy_display(t_xvar *xvar)
 {
-	ft_printf("key pressed: %i\n", keycode);
-	if (keycode == XK_Escape)
-		quit(vars);
-	return (0);
+	XCloseDisplay(xvar->display);
 }

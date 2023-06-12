@@ -6,7 +6,7 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:55:54 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/10 18:54:11 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/12 16:31:30 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	init(char *name, t_vars *vars, t_map *map_data)
 
 	// draw_gradient_box(vars, 800, 800, red);
 	mlx_hook(vars->win, KeyPress, 1L << 0, key_pressed, &vars);
-	mlx_hook(vars->win, WindowClosed, 0L, window_closed, &vars);
+	mlx_hook(vars->win, DestroyNotify, 0L, window_closed, &vars);
 	mlx_loop(vars->mlx);
 	return (0);
 }

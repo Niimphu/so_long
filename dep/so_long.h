@@ -6,7 +6,7 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:54:16 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/10 16:53:48 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/12 16:31:18 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,14 @@
 # include "lib/libft/libft.h"
 # include "lib/ft_printf/ft_printf.h"
 # include "lib/lib_me42/lib_me42.h"
-# include "lib/mlx_opengl/mlx.h"
+# include "lib/mlx_linux/mlx.h"
 # include "lib/get_next_line/get_next_line.h"
 
 # include <fcntl.h>
+# include <X11/X.h>
+# include <X11/keysym.h>
+# include <X11/keysymdef.h>
+
 
 # define RED "\033[1;31m"
 # define RESET "\033[1;0m"
@@ -48,11 +52,11 @@ typedef struct	s_vars {
 	t_map	*map_data;
 }				t_vars;
 
-enum	e_X11Events {
-	KeyPress = 2,
-	KeyRelease = 3,
-	WindowClosed = 17
-};
+// enum	e_X11Events {
+// 	KeyPress = 2,
+// 	KeyRelease = 3,
+// 	WindowClosed = 17
+// };
 
 enum	e_keycodes {
 	ESC = 53,

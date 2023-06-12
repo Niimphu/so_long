@@ -6,13 +6,15 @@
 #    By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 15:44:30 by yiwong            #+#    #+#              #
-#    Updated: 2023/06/10 16:55:53 by yiwong           ###   ########.fr        #
+#    Updated: 2023/06/12 17:07:20 by yiwong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc -O3
 
-CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g -Ofast -Isources -fsanitize=address
+
+LDFLAGS = -fsanitize=address
 
 SRC = src/main.c \
 		src/ready_check.c \
@@ -30,9 +32,9 @@ GNL = dep/lib/get_next_line/get_next_line.c \
 
 OBJ = $(SRC:.c=.o)
 
-MLX_DIR = dep/lib/mlx_opengl
+MLX_DIR = dep/lib/mlx_linux
 
-LIB_OS = -Ldep/lib/mlx_opengl -lmlx
+LIB_OS = -Ldep/lib/mlx_linux -lmlx
 
 OS_FLAGS = -Imlx
 
@@ -40,6 +42,12 @@ API = -framework OpenGL -framework AppKit
 
 LIBS = -Ldep/lib/libft -lft -Ldep/lib/ft_printf -lftprintf \
 	-Ldep/lib/lib_me42 -lme42 $(LIB_OS)
+
+CFLAGS += -Ilib/dep/mlx_linux -I/usr/X11/include
+
+LDFLAGS += -Ldep/lib/mlx_linux -L/usr/X11/lib
+
+LIBS += -lX11 -lXext -lft -lmlx
 
 NAME = so_long
 
@@ -53,9 +61,9 @@ END = \033[0m
 all: $(NAME)
 
 $(NAME): $(OBJ)
+	@make -sC $(MLX_DIR)
 	@echo -ne "$(PURPLE)Making $(END)"
 	@echo -ne "$(PURPLE)███$(END)"
-	@make -sC $(MLX_DIR)
 	@echo -ne "$(PURPLE)███$(END)"
 	@make -sC dep/lib/libft
 	@echo -ne "$(PURPLE)████$(END)"
@@ -63,11 +71,11 @@ $(NAME): $(OBJ)
 	@echo -ne "$(PURPLE)████$(END)"
 	@make -sC dep/lib/lib_me42
 	@echo -e "$(PURPLE)███$(END)"
-	@$(CC) $(CFLAGS) $(OBJ) $(LIBS) $(API) -o $(NAME)
+	@$(CC) $(LDFLAGS) $(OBJ) -o $(NAME) $(LIBS)
 	@echo -e "$(GREEN)Make done!$(END)"
 
 %.o: %.c
-	@$(CC) $(CFLAGS) $(OS_FLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@echo -ne "$(BLUE)Cleaning $(END)"
