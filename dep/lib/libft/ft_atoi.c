@@ -26,11 +26,10 @@ int	ft_atoi(const char *nptr)
 		|| s[i] == '\n' || s[i] == '\r' || s[i] == '\f' || s[i] == '\v')
 		i++;
 	sign = 1;
-	if (s[i] == '+')
-		i++;
-	else if (s[i] == '-')
+	while (s[i] == '+' || s[i] == '-')
 	{
-		sign = -1;
+		if (s[i] == '-')
+			sign *= -1;
 		i++;
 	}
 	return (ft_atoi_extended(i, s, sign));

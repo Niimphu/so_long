@@ -14,7 +14,7 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror -g
 
-AR = ar rcs
+AR = ar rs
 
 DEPS = libft.h
 
