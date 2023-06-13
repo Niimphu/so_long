@@ -6,7 +6,7 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 19:08:58 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/13 18:29:53 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/13 18:39:49 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int	*map_size(char **map, int size[2])
 		i++;
 	while (map[i][j + 1])
 		j++;
-	size[0] = i;
-	size[1] = j;
+	size[0] = ++i;
+	size[1] = ++j;
 	return (size);
 }
