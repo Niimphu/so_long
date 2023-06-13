@@ -6,7 +6,7 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 19:08:58 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/10 14:45:17 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/13 18:29:53 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,20 @@ char	**propogate_path(char **map)
 		map[i - 1][j] = 'P';
 	map[i][j] = 'V';
 	return (map);
+}
+
+int	*map_size(char **map, int size[2])
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (map[i + 1])
+		i++;
+	while (map[i][j + 1])
+		j++;
+	size[0] = i;
+	size[1] = j;
+	return (size);
 }
