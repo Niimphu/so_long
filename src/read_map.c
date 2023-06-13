@@ -6,13 +6,28 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 18:52:36 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/10 18:49:16 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/13 17:25:31 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../dep/so_long.h"
 
 char	*remove_whitespace(char *line);
+
+int	open_map_file(char *name)
+{
+	int		fd;
+	char	*temp;
+
+	temp = ft_strjoin(name, ".ber");
+	name = ft_strjoin("maps/", temp);
+	free_pointer(temp);
+	fd = open(name, O_RDONLY, 0666);
+	free_pointer(name);
+	if (fd < 0)
+		return (0);
+	return (fd);
+}
 
 char	**read_map(int fd)
 {

@@ -6,7 +6,7 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 17:15:08 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/10 18:46:07 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/13 17:15:15 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	arg_check(int argc, char **argv)
 
 int	map_check(char *name)
 {
-	const int	fd = open_map(name);
+	const int	fd = open_map_file(name);
 	int			error_code;
 	char		**map;
 
@@ -43,19 +43,4 @@ int	map_check(char *name)
 	close(fd);
 	free_ppointer(map);
 	return (error_code);
-}
-
-int	open_map(char *name)
-{
-	int		fd;
-	char	*temp;
-
-	temp = ft_strjoin(name, ".ber");
-	name = ft_strjoin("maps/", temp);
-	free_pointer(temp);
-	fd = open(name, O_RDONLY, 0666);
-	free_pointer(name);
-	if (fd < 0)
-		return (0);
-	return (fd);
 }
