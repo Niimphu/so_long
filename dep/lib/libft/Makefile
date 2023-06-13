@@ -14,7 +14,7 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror -g
 
-AR = ar rs
+AR = ar rcs
 
 DEPS = libft.h
 
@@ -76,15 +76,18 @@ $(NAME) : $(OBJ)
 		@$(CC) $(CFLAGS) -c $(SRC)
 		@$(AR) $(NAME) $(OBJ)
 
+%.o: %.c
+	@$(CC) $(CFLAGS) -c $< -o $@
+
 bonus : $(OBJ) $(BONUS_OBJ)
 		@$(CC) $(CFLAGS) -c $(SRC) $(BONUS_SRC)
 		@$(AR) $(NAME) $(OBJ) $(BONUS_OBJ)
 
 clean :
-		 rm -f $(OBJ) $(BONUS_OBJ)
+		 @rm -f $(OBJ) $(BONUS_OBJ)
 
 fclean : clean
-		 rm -f $(NAME)
+		 @rm -f $(NAME)
 
 re : fclean all
 

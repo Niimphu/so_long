@@ -6,7 +6,7 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:54:16 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/13 18:50:34 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/13 19:15:51 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ int		map_check(char *name);
 int		is_map_valid(char **map);
 
 int		key_pressed(int keycode, t_vars *vars);
+
+int		so_long(t_vars *vars);
 
 int		window_closed(t_vars *vars);
 void	error(int error_code);
