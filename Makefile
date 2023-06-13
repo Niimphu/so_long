@@ -6,15 +6,15 @@
 #    By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 15:44:30 by yiwong            #+#    #+#              #
-#    Updated: 2023/06/12 19:40:56 by yiwong           ###   ########.fr        #
+#    Updated: 2023/06/13 16:00:43 by yiwong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc -O3
 
-CFLAGS = -Wall -Wextra -Werror -g -Ofast -Isources -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g -Ofast -Isources
 
-LDFLAGS = -fsanitize=address
+LDFLAGS =
 
 SRC = src/main.c \
 		src/ready_check.c \
