@@ -6,7 +6,7 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 15:57:25 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/11 15:39:58 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/13 17:24:20 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,10 +85,12 @@ int	has_continuous_border(char **map)
 		i++;
 	}
 	i--;
+	j = 0;
 	while (map[0][j] && map[i][j])
 	{
-		if (map[0][j] != '1' || map[i][j--] != '1')
+		if (map[0][j] != '1' || map[i][j] != '1')
 			return (FALSE);
+		j++;
 	}
 	return (TRUE);
 }
