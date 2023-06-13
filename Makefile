@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc -O3
+CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -g -Ofast -Isources
+CFLAGS = -Wall -Wextra -Werror -g -Isources
 
 LDFLAGS =
 

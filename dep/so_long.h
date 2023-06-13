@@ -6,7 +6,7 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:54:16 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/13 19:15:51 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/14 00:20:26 by kschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,25 +47,21 @@ typedef struct	s_vars {
 	int		map_height;
 }				t_vars;
 
-enum	e_keycodes {
-	ESC = 53,
-	W = 13,
-	A = 0,
-	S = 1,
-	D = 2
-};
+# define ESC 53
+# define W 13
+# define A 0
+# define S 1
+# define D 2
 
-enum	e_errorcodes {
-	OK = 0,
-	FAIL = -1,
-	ARGN = 11,
-	MAP_NAME = 12,
-	BAD_MAP = 13
-};
+# define OK 0
+# define FAIL (-1)
+# define ARGN 11
+# define MAP_NAME 12
+# define BAD_MAP 1
 
-#define red 0x00FF0000
-#define green 0x0000FF00
-#define blue 0x000000FF
+# define red 0x00FF0000
+# define green 0x0000FF00
+# define blue 0x000000FF
 
 int		arg_check(int argc, char **argv);
 

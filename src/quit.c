@@ -24,6 +24,5 @@ void	quit(t_vars *vars)
 	mlx_loop_end(vars->mlx);
 	mlx_destroy_display(vars->mlx);
 	free_ppointer(vars->map);
-	free(vars->mlx);
 	exit(0);
 }
