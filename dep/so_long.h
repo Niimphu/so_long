@@ -39,7 +39,8 @@
 # define FAIL (-1)
 # define ARGN 11
 # define MAP_NAME 12
-# define BAD_MAP 1
+# define BAD_MAP 13
+
 
 typedef struct	s_data {
 	void	*img;

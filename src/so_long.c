@@ -6,11 +6,13 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 15:16:58 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/14 14:41:04 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/14 19:11:17 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../dep/so_long.h"
+
+#define PLAYER "../sprites/Player.png"
 
 int	so_long(t_vars *vars)
 {
@@ -19,3 +21,10 @@ int	so_long(t_vars *vars)
 	mlx_loop(vars->mlx);
 	return (0);
 }
+
+// int	draw_something(t_vars *vars)
+// {
+// 	void	*img;
+
+// 	img = mlx_png_file_to_image(mlx, PLAYER, &img_width, &img_height);
+// }
