@@ -6,13 +6,13 @@
 #    By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 15:44:30 by yiwong            #+#    #+#              #
-#    Updated: 2023/06/13 16:00:43 by yiwong           ###   ########.fr        #
+#    Updated: 2023/06/14 14:37:58 by yiwong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc -O3
+CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -g -Ofast -Isources
+CFLAGS = -Wall -Wextra -Werror -O3 -Ofast -Isources
 
 LDFLAGS =
 

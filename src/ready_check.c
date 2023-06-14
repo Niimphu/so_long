@@ -6,7 +6,7 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 17:15:08 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/13 17:15:15 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/14 14:34:56 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	arg_check(int argc, char **argv)
 	int	error_code;
 
 	if (argc == 1)
-		return (0);
+		return (OK);
 	else if (argc >= 3)
 		return (ARGN);
 	error_code = map_check(argv[argc - 1]);
