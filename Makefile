@@ -6,7 +6,7 @@
 #    By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 15:44:30 by yiwong            #+#    #+#              #
-#    Updated: 2023/06/14 14:37:58 by yiwong           ###   ########.fr        #
+#    Updated: 2023/06/16 18:45:03 by yiwong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,9 +61,9 @@ END = \033[0m
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@make -sC $(MLX_DIR)
 	@echo -ne "$(PURPLE)Making $(END)"
 	@echo -ne "$(PURPLE)███$(END)"
+	@make -sC $(MLX_DIR)
 	@echo -ne "$(PURPLE)███$(END)"
 	@make -sC dep/lib/libft
 	@echo -ne "$(PURPLE)████$(END)"
