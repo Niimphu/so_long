@@ -44,6 +44,8 @@ int	init(char *name, t_vars *vars)
 		return (FAIL);
 	vars->map = read_map(fd);
 	close(fd);
+    if (!vars->map)
+		error(FAIL);
 	vars->map_height = map_size(vars->map, size)[0];
 	vars->map_width = map_size(vars->map, size)[1];
 	vars->mlx = mlx_init();

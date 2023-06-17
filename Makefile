@@ -21,6 +21,7 @@ SRC = src/main.c \
 		src/read_map.c \
 		src/map_checkers.c \
 		src/so_long.c \
+		src/draw.c \
 		src/input_handler.c \
 		src/error.c \
 		src/quit.c \

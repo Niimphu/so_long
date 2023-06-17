@@ -6,7 +6,7 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:54:16 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/14 14:31:55 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/17 03:50:31 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@
 # include <X11/keysym.h>
 # include <X11/keysymdef.h>
 
-
 # define RED "\033[1;31m"
 # define RESET "\033[1;0m"
 
@@ -41,6 +40,8 @@
 # define MAP_NAME 12
 # define BAD_MAP 13
 
+# define X 1
+# define Y 0
 
 typedef struct	s_data {
 	void	*img;
@@ -68,6 +69,9 @@ int		is_map_valid(char **map);
 int		key_pressed(int keycode, t_vars *vars);
 
 int		so_long(t_vars *vars);
+
+int		draw_player(t_vars *vars);
+int		draw_background(t_vars *vars);
 
 int		window_closed(t_vars *vars);
 void	error(int error_code);
