@@ -23,6 +23,7 @@ SRC = src/main.c \
 		src/so_long.c \
 		src/draw.c \
 		src/input_handler.c \
+		src/movement.c \
 		src/error.c \
 		src/quit.c \
 		src/map_utils.c \

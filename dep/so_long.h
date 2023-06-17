@@ -67,9 +67,11 @@ int		map_check(char *name);
 int		is_map_valid(char **map);
 
 int		key_pressed(int keycode, t_vars *vars);
+int 	move_input(t_vars *vars, int keycode);
 
 int		so_long(t_vars *vars);
 
+int 	draw_entities(t_vars *vars);
 int		draw_player(t_vars *vars);
 int		draw_background(t_vars *vars);
 
