@@ -12,7 +12,7 @@
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -O3 -Ofast -Isources
+CFLAGS = -Wall -Wextra -Werror -g -Isources
 
 LDFLAGS =
 

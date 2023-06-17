@@ -14,7 +14,6 @@
 
 int	key_pressed(int keycode, t_vars *vars)
 {
-	ft_printf("key pressed: %i\n", keycode);
 	if (keycode == XK_Escape)
 	{
 		mlx_clear_window(vars->mlx, vars->win);
