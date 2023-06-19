@@ -6,7 +6,7 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 15:57:25 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/13 17:24:20 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/19 19:35:52 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int	is_rectangular(char **map)
 	count = ft_strlen(map[i++]);
 	while (map[i])
 	{
+		if (!map[i + 1] && ft_strlen(map[i]) == count - 1)
+			return (TRUE);
 		if (ft_strlen(map[i++]) != count)
 			return (FALSE);
 	}
@@ -111,7 +113,7 @@ int	has_valid_path(char **map)
 			done = 1;
 			break ;
 		}
-		map = propogate_path(map);
+		map = propagate_path(map);
 	}
 	if (locate_first(map, 'E', coords) || locate_first(map, 'C', coords))
 		return (FALSE);

@@ -17,6 +17,7 @@ CFLAGS = -Wall -Wextra -Werror -g -Isources
 LDFLAGS =
 
 SRC = src/main.c \
+		src/init.c \
 		src/ready_check.c \
 		src/read_map.c \
 		src/map_checkers.c \

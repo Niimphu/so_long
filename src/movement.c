@@ -33,9 +33,9 @@ int move_input(t_vars *vars, int keycode)
 	else if (keycode == XK_a)
 		direction = LEFT;
 	else if (keycode == XK_s)
-		direction = RIGHT;
-	else if (keycode == XK_d)
 		direction = DOWN;
+	else if (keycode == XK_d)
+		direction = RIGHT;
 	locate_first(vars->map, 'P', coords);
 	target[X] = coords[X];
 	target[Y] = coords[Y];
@@ -50,13 +50,13 @@ int move_input(t_vars *vars, int keycode)
 int check_valid_move(t_vars *vars, int direction, int coords[2])
 {
 	if (direction == UP)
-		coords[X] -= 1;
-	else if (direction == DOWN)
-		coords[X] += 1;
-	else if (direction == LEFT)
 		coords[Y] -= 1;
-	else if (direction == RIGHT)
+	else if (direction == DOWN)
 		coords[Y] += 1;
+	else if (direction == LEFT)
+		coords[X] -= 1;
+	else if (direction == RIGHT)
+		coords[X] += 1;
 	if (vars->map[coords[Y]][coords[X]] != '1')
 		return (TRUE);
 	return (FALSE);
@@ -64,7 +64,17 @@ int check_valid_move(t_vars *vars, int direction, int coords[2])
 
 int move_player(t_vars *vars, int coords[2], int target[2])
 {
-	vars->map[coords[Y]][coords[X]] = '0';
+	int exit_coords[2];
+
+	if (vars->map[target[Y]][target[X]] == 'C')
+		vars->collectible_count -= 1;
+
+	if (coords[X] == vars->exit_coords[X] && coords[Y] == vars->exit_coords[Y])
+		vars->map[coords[Y]][coords[X]] = 'E';
+	else
+		vars->map[coords[Y]][coords[X]] = '0';
 	vars->map[target[Y]][target[X]] = 'P';
+	if (vars->collectible_count == 0 && !locate_first(vars->map, 'E', exit_coords))
+		quit(vars);
 	return (0);
 }

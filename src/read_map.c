@@ -12,7 +12,7 @@
 
 #include "../dep/so_long.h"
 
-char	*remove_whitespace(char *line);
+int get_map_height(int *fd, char *name);
 
 int	open_map_file(char *name)
 {
@@ -29,21 +29,25 @@ int	open_map_file(char *name)
 	return (fd);
 }
 
-char	**read_map(int fd)
+char	**read_map(int fd, char *name)
 {
 	char	*line;
 	char	**map;
 	int		i;
+	int		len;
 
 	line = get_next_line(fd);
 	if (!line)
 		return (NULL);
+	len = ft_strlen(line);
 	i = 0;
-	map = (char **)malloc(sizeof(char *) * 10);
+	map = (char **)malloc(sizeof(char *)
+			* (get_map_height(&fd, name) + 1));
 	while (line)
 	{
-		map[i] = remove_whitespace(line);
-		free_pointer(line);
+		map[i] = (char *)malloc(sizeof(char) * len - 1);
+		ft_strlcpy(map[i], line, len);
+		free(line);
 		line = get_next_line(fd);
 		i++;
 	}
@@ -51,30 +55,50 @@ char	**read_map(int fd)
 	return (map);
 }
 
-char	*remove_whitespace(char *line)
+int get_map_height(int *fd, char *name)
 {
-	char	*return_line;
 	int		i;
-	int		j;
-	int		count;
+	char	*line;
 
 	i = 0;
-	count = 0;
-	while (line[i])
+	line = get_next_line(*fd);
+	while (line)
 	{
-		if (line[i] != ' ' && line[i] != '\n')
-			count++;
+		free(line);
+		line = get_next_line(*fd);
 		i++;
 	}
-	return_line = (char *)malloc(sizeof(char) * (count + 1));
-	i = 0;
-	j = 0;
-	while (j < count && line[i])
-	{
-		if (line[i] != ' ' && line[i] != '\n')
-			return_line[j++] = line[i];
-		i++;
-	}
-	return_line[j] = '\0';
-	return (return_line);
+	close(*fd);
+	*fd = open_map_file(name);
+	return (i + 1);
 }
+
+////Obsolete////
+//char	*remove_whitespace(char *line)
+//{
+//	char	*return_line;
+//	int		i;
+//	int		j;
+//	int		count;
+//
+//	i = 0;
+//	count = 0;
+//	while (line[i])
+//	{
+//		if (line[i] != ' ' && line[i] != '\n')
+//			count++;
+//		i++;
+//	}
+//	return_line = (char *)malloc(sizeof(char) * (count + 1));
+//	i = 0;
+//	j = 0;
+//	while (j < count && line[i])
+//	{
+//		if (line[i] != ' ' && line[i] != '\n')
+//			return_line[j++] = line[i];
+//		i++;
+//	}
+//	return_line[j] = '\0';
+//	return (return_line);
+//}
+//

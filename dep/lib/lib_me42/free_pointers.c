@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "lib_me42.h"
+#include <stdio.h>
 
 void	free_pointer(char *str)
 {

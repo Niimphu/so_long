@@ -27,10 +27,6 @@
 # define RED "\033[1;31m"
 # define RESET "\033[1;0m"
 
-#define red 0x00FF0000
-#define green 0x0000FF00
-#define blue 0x000000FF
-
 # define TRUE 1
 # define FALSE 0
 
@@ -54,20 +50,26 @@ typedef struct	s_data {
 typedef struct	s_vars {
 	void	*mlx;
 	void	*win;
+	void	*player_image;
 	char	**map;
-	int		map_width;
-	int		map_height;
+	int 	collectible_count;
+	int		map_size[2];
+	int 	exit_coords[2];
 }				t_vars;
 
 int		arg_check(int argc, char **argv);
 
 int		open_map_file(char *name);
-char	**read_map(int fd);
+char	**read_map(int fd, char *name);
 int		map_check(char *name);
 int		is_map_valid(char **map);
 
+int		init(char *name, t_vars *vars);
+
 int		key_pressed(int keycode, t_vars *vars);
 int 	move_input(t_vars *vars, int keycode);
+
+int 	count_collectibles(t_vars *vars);
 
 int		so_long(t_vars *vars);
 
@@ -81,7 +83,7 @@ void 	quit(t_vars *vars);
 
 void	print_map(char **map);
 int		*locate_first(char **map, char c, int coords[2]);
-char	**propogate_path(char **map);
-int		*map_size(char **map, int size[2]);
+char	**propagate_path(char **map);
+int		*get_map_size(char **map, int size[2]);
 
 #endif

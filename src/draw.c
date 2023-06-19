@@ -55,6 +55,7 @@ int draw_entities(t_vars *vars)
 	int 	i;
 	int 	j;
 
+	draw_background(vars);
 	get_images_from_textures(vars, images);
 	i = 0;
 	while (vars->map[i])
@@ -91,5 +92,6 @@ int	get_images_from_textures(t_vars *vars, void *images[5])
 	images[C] = mlx_xpm_file_to_image(vars->mlx, COLLECTIBLE, &length, &length);
 	images[W] = mlx_xpm_file_to_image(vars->mlx, WALL, &length, &length);
 //	images[H] = mlx_xpm_file_to_image(vars->mlx, ENEMY, &length, &length);
+	vars->player_image = images[P];
 	return (0);
 }

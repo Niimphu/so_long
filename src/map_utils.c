@@ -52,12 +52,12 @@ int	*locate_first(char **map, char c, int coords[2])
 		}
 		i++;
 	}
-	if (!coords[0] || !coords[1])
+	if (coords[0] == 0 && coords[1] == 0)
 		return (NULL);
 	return (coords);
 }
 
-char	**propogate_path(char **map)
+char	**propagate_path(char **map)
 {
 	int	i;
 	int	j;
@@ -77,7 +77,7 @@ char	**propogate_path(char **map)
 	return (map);
 }
 
-int	*map_size(char **map, int size[2])
+int	*get_map_size(char **map, int size[2])
 {
 	int	i;
 	int	j;
