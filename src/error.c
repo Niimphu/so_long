@@ -12,6 +12,9 @@
 
 #include "../dep/so_long.h"
 
+# define RED "\033[1;31m"
+# define RESET "\033[1;0m"
+
 void	error(int error_code)
 {
 	int	ret;

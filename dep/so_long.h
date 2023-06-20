@@ -24,9 +24,6 @@
 # include <X11/keysym.h>
 # include <X11/keysymdef.h>
 
-# define RED "\033[1;31m"
-# define RESET "\033[1;0m"
-
 # define TRUE 1
 # define FALSE 0
 
