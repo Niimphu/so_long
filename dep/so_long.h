@@ -55,6 +55,7 @@ typedef struct	s_vars {
 	int 	collectible_count;
 	int		map_size[2];
 	int 	exit_coords[2];
+	int 	move_count;
 }				t_vars;
 
 int		arg_check(int argc, char **argv);

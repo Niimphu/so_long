@@ -46,6 +46,7 @@ int set_vars(t_vars *vars)
 	locate_first(vars->map, 'E', vars->exit_coords);
 	get_map_size(vars->map, vars->map_size);
 	count_collectibles(vars);
+	vars->move_count = 0;
 	return (0);
 }
 

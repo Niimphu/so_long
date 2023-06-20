@@ -43,7 +43,7 @@ int move_input(t_vars *vars, int keycode)
 	if (is_move_possible)
 		move_player(vars, coords, target);
 	else
-		ft_printf("Bad move\n");
+		return (0);
 	return (0);
 }
 
@@ -74,6 +74,7 @@ int move_player(t_vars *vars, int coords[2], int target[2])
 	else
 		vars->map[coords[Y]][coords[X]] = '0';
 	vars->map[target[Y]][target[X]] = 'P';
+	vars->move_count += 1;
 	if (vars->collectible_count == 0 && !locate_first(vars->map, 'E', exit_coords))
 		quit(vars);
 	return (0);
