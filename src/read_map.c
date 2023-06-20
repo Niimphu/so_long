@@ -36,13 +36,13 @@ char	**read_map(int fd, char *name)
 	int		i;
 	int		len;
 
+	map = (char **)malloc(sizeof(char *)
+						  * (get_map_height(&fd, name) + 1));
 	line = get_next_line(fd);
 	if (!line)
 		return (NULL);
 	len = ft_strlen(line);
 	i = 0;
-	map = (char **)malloc(sizeof(char *)
-			* (get_map_height(&fd, name) + 1));
 	while (line)
 	{
 		map[i] = (char *)malloc(sizeof(char) * len - 1);
@@ -70,7 +70,7 @@ int get_map_height(int *fd, char *name)
 	}
 	close(*fd);
 	*fd = open_map_file(name);
-	return (i + 1);
+	return (i);
 }
 
 ////Obsolete////
