@@ -29,9 +29,8 @@ int new_map(char *name, t_vars *vars)
 	int	fd;
 
 	if (!name)
-		fd = open_map_file("valid\0");
-	else
-		fd = open_map_file(name);
+		name = "valid\0";
+	fd = open_map_file(name);
 	if (fd < 0)
 		return (FAIL);
 	vars->map = read_map(fd, name);
