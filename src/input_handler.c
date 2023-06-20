@@ -24,5 +24,6 @@ int	key_pressed(int keycode, t_vars *vars)
 					|| keycode == XK_s || keycode == XK_d)
 		move_input(vars, keycode);
 	draw_entities(vars);
+	update_move_counter(vars);
 	return (0);
 }

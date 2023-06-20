@@ -39,10 +39,6 @@ MLX_DIR = dep/lib/mlx_linux
 
 LIB_OS = -Ldep/lib/mlx_linux -lmlx
 
-OS_FLAGS = -Imlx
-
-API = -framework OpenGL -framework AppKit
-
 LIBS = -Ldep/lib/libft -lft -Ldep/lib/ft_printf -lftprintf \
 	-Ldep/lib/lib_me42 -lme42 $(LIB_OS)
 

@@ -22,7 +22,6 @@
 #define E 1
 #define C 2
 #define W 3
-#define G 4
 
 int	get_images_from_textures(t_vars *vars, void *images[5]);
 
@@ -35,18 +34,6 @@ int	draw_background(t_vars *vars)
 	img = mlx_xpm_file_to_image(vars->mlx, BG, &width, &height);
 	mlx_put_image_to_window(vars->mlx, vars->win, img, 0, 0);
 	return (0);
-}
-
-int	draw_player(t_vars *vars)
-{
-	int 	coords[2];
-	void	*images[5];
-
-	locate_first(vars->map, 'P', coords);
-	get_images_from_textures(vars, images);
-    mlx_put_image_to_window(vars->mlx, vars->win, images[P],
-							64 * coords[X], 64 * coords[Y]);
-    return (0);
 }
 
 int draw_entities(t_vars *vars)
@@ -91,7 +78,20 @@ int	get_images_from_textures(t_vars *vars, void *images[5])
 	images[E] = mlx_xpm_file_to_image(vars->mlx, EXIT, &length, &length);
 	images[C] = mlx_xpm_file_to_image(vars->mlx, COLLECTIBLE, &length, &length);
 	images[W] = mlx_xpm_file_to_image(vars->mlx, WALL, &length, &length);
-//	images[H] = mlx_xpm_file_to_image(vars->mlx, ENEMY, &length, &length);
 	vars->player_image = images[P];
+	return (0);
+}
+
+int update_move_counter(t_vars *vars)
+{
+	char	*count_string;
+	char	*print_string;
+
+	count_string = ft_itoa(vars->move_count);
+	print_string = ft_strjoin("Moves: ", count_string);
+	mlx_string_put(vars->mlx, vars->win, 12,
+				   vars->map_size[Y] * 64 + 12, 0x00000000, print_string);
+	free_pointer(count_string);
+	free_pointer(print_string);
 	return (0);
 }

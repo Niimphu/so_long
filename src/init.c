@@ -20,7 +20,7 @@ int	init(char *name, t_vars *vars)
 	new_map(name, vars);
 	vars->mlx = mlx_init();
 	vars->win = mlx_new_window(vars->mlx, vars->map_size[X] * 64,
-							   vars->map_size[Y] * 64, "so_looooong");
+							   vars->map_size[Y] * 64 + 18, "so_looooong");
 	return (0);
 }
 

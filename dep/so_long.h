@@ -72,8 +72,8 @@ int 	count_collectibles(t_vars *vars);
 int		so_long(t_vars *vars);
 
 int 	draw_entities(t_vars *vars);
-int		draw_player(t_vars *vars);
 int		draw_background(t_vars *vars);
+int 	update_move_counter(t_vars *vars);
 
 int		window_closed(t_vars *vars);
 void	error(int error_code);

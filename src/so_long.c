@@ -18,6 +18,7 @@ int	so_long(t_vars *vars)
 	mlx_hook(vars->win, DestroyNotify, 0L, window_closed, vars);
 	draw_background(vars);
 	draw_entities(vars);
+	update_move_counter(vars);
 	mlx_loop(vars->mlx);
 	return (0);
 }
