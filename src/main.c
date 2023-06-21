@@ -6,7 +6,7 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:55:54 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/14 14:49:57 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/21 18:07:29 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(int argc, char **argv)
 {
-	int	error_code;
+	int		error_code;
 	t_vars	vars;
 
 	ft_memset(&vars, 0, sizeof(vars));

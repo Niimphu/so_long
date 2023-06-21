@@ -6,7 +6,7 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 15:33:20 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/17 17:06:57 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/21 18:09:04 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@
 #define LEFT 2
 #define RIGHT 4
 
-int check_valid_move(t_vars *vars, int direction, int coords[2]);
-int move_player(t_vars *vars, int coords[2], int target[2]);
+int	check_valid_move(t_vars *vars, int direction, int coords[2]);
+int	move_player(t_vars *vars, int coords[2], int target[2]);
 
-int move_input(t_vars *vars, int keycode)
+int	move_input(t_vars *vars, int keycode)
 {
-	int direction;
-	int is_move_possible;
-	int coords[2];
-	int target[2];
+	int	direction;
+	int	is_move_possible;
+	int	coords[2];
+	int	target[2];
 
 	direction = -1;
 	if (keycode == XK_w)
@@ -47,7 +47,7 @@ int move_input(t_vars *vars, int keycode)
 	return (0);
 }
 
-int check_valid_move(t_vars *vars, int direction, int coords[2])
+int	check_valid_move(t_vars *vars, int direction, int coords[2])
 {
 	if (direction == UP)
 		coords[Y] -= 1;
@@ -62,20 +62,20 @@ int check_valid_move(t_vars *vars, int direction, int coords[2])
 	return (FALSE);
 }
 
-int move_player(t_vars *vars, int coords[2], int target[2])
+int	move_player(t_vars *vars, int coords[2], int target[2])
 {
-	int exit_coords[2];
+	int	exit_coords[2];
 
 	if (vars->map[target[Y]][target[X]] == 'C')
 		vars->collectible_count -= 1;
-
 	if (coords[X] == vars->exit_coords[X] && coords[Y] == vars->exit_coords[Y])
 		vars->map[coords[Y]][coords[X]] = 'E';
 	else
 		vars->map[coords[Y]][coords[X]] = '0';
 	vars->map[target[Y]][target[X]] = 'P';
 	vars->move_count += 1;
-	if (vars->collectible_count == 0 && !locate_first(vars->map, 'E', exit_coords))
+	if (vars->collectible_count == 0
+		&& !locate_first(vars->map, 'E', exit_coords))
 		quit(vars);
 	return (0);
 }

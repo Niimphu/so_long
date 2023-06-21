@@ -6,26 +6,30 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 16:33:08 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/21 13:19:41 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/21 18:06:53 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../dep/so_long.h"
 
-int set_vars(t_vars *vars);
-int new_map(char *name, t_vars *vars);
+int	set_vars(t_vars *vars);
+int	new_map(char *name, t_vars *vars);
 
 int	init(char *name, t_vars *vars)
 {
+	int	x;
+	int	y;
+
 	new_map(name, vars);
+	x = vars->map_size[X] * 64;
+	y = vars->map_size[Y] * 64 + 18;
 	vars->mlx = mlx_init();
-	vars->win = mlx_new_window(vars->mlx, vars->map_size[X] * 64,
-							   vars->map_size[Y] * 64 + 18, "so_looooong");
+	vars->win = mlx_new_window(vars->mlx, x, y, "so_looooong");
 	get_images_from_textures(vars);
 	return (0);
 }
 
-int new_map(char *name, t_vars *vars)
+int	new_map(char *name, t_vars *vars)
 {
 	int	fd;
 
@@ -42,7 +46,7 @@ int new_map(char *name, t_vars *vars)
 	return (0);
 }
 
-int set_vars(t_vars *vars)
+int	set_vars(t_vars *vars)
 {
 	locate_first(vars->map, 'E', vars->exit_coords);
 	get_map_size(vars->map, vars->map_size);
@@ -51,10 +55,10 @@ int set_vars(t_vars *vars)
 	return (0);
 }
 
-int count_collectibles(t_vars *vars)
+int	count_collectibles(t_vars *vars)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	vars->collectible_count = 0;
 	i = 0;

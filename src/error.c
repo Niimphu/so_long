@@ -6,14 +6,14 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 17:20:35 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/11 15:42:33 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/21 18:03:06 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../dep/so_long.h"
 
-# define RED "\033[1;31m"
-# define RESET "\033[1;0m"
+#define RED "\033[1;31m"
+#define RESET "\033[1;0m"
 
 void	error(int error_code)
 {

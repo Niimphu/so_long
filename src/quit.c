@@ -6,7 +6,7 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 17:54:03 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/14 14:35:47 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/21 18:09:14 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	quit(t_vars *vars)
 
 void	free_images(t_vars *vars)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (vars->images[i])

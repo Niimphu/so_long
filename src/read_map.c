@@ -6,13 +6,13 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 18:52:36 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/13 17:25:31 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/21 18:10:08 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../dep/so_long.h"
 
-int get_map_height(int *fd, char *name);
+int	get_map_height(int *fd, char *name);
 
 int	open_map_file(char *name)
 {
@@ -35,8 +35,7 @@ char	**read_map(int fd, char *name)
 	char	**map;
 	int		i;
 
-	map = (char **)malloc(sizeof(char *)
-						  * (get_map_height(&fd, name) + 1));
+	map = (char **)malloc(sizeof(char *) * (get_map_height(&fd, name) + 1));
 	line = get_next_line(fd);
 	if (!line)
 		return (NULL);
@@ -52,7 +51,7 @@ char	**read_map(int fd, char *name)
 	return (map);
 }
 
-int get_map_height(int *fd, char *name)
+int	get_map_height(int *fd, char *name)
 {
 	int		i;
 	char	*line;
@@ -69,33 +68,3 @@ int get_map_height(int *fd, char *name)
 	*fd = open_map_file(name);
 	return (i);
 }
-
-////Obsolete////
-//char	*remove_whitespace(char *line)
-//{
-//	char	*return_line;
-//	int		i;
-//	int		j;
-//	int		count;
-//
-//	i = 0;
-//	count = 0;
-//	while (line[i])
-//	{
-//		if (line[i] != ' ' && line[i] != '\n')
-//			count++;
-//		i++;
-//	}
-//	return_line = (char *)malloc(sizeof(char) * (count + 1));
-//	i = 0;
-//	j = 0;
-//	while (j < count && line[i])
-//	{
-//		if (line[i] != ' ' && line[i] != '\n')
-//			return_line[j++] = line[i];
-//		i++;
-//	}
-//	return_line[j] = '\0';
-//	return (return_line);
-//}
-//
