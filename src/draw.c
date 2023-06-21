@@ -16,34 +16,20 @@
 #define COLLECTIBLE "sprites/Collectible.xpm"
 #define EXIT "sprites/Exit.xpm"
 #define WALL "sprites/Wall.xpm"
-#define BG "sprites/BG.xpm"
-
-#define P 0
-#define E 1
-#define C 2
-#define W 3
-
-int	get_images_from_textures(t_vars *vars, void *images[5]);
+#define BACKGROUND "sprites/BG.xpm"
 
 int	draw_background(t_vars *vars)
 {
-	void	*img;
-	int 	width = 1920;
-	int 	height = 1080;
-
-	img = mlx_xpm_file_to_image(vars->mlx, BG, &width, &height);
-	mlx_put_image_to_window(vars->mlx, vars->win, img, 0, 0);
+	mlx_put_image_to_window(vars->mlx, vars->win, vars->images[BG], 0, 0);
 	return (0);
 }
 
 int draw_entities(t_vars *vars)
 {
-	void	*images[5];
 	int 	i;
 	int 	j;
 
 	draw_background(vars);
-	get_images_from_textures(vars, images);
 	i = 0;
 	while (vars->map[i])
 	{
@@ -52,16 +38,16 @@ int draw_entities(t_vars *vars)
 		{
 			if (vars->map[i][j] == 'P')
 				mlx_put_image_to_window(vars->mlx, vars->win,
-										images[P],64 * j, 64 * i);
+										vars->images[P],64 * j, 64 * i);
 			else if (vars->map[i][j] == 'C')
 				mlx_put_image_to_window(vars->mlx, vars->win,
-										images[C],64 * j, 64 * i);
+										vars->images[C],64 * j, 64 * i);
 			else if (vars->map[i][j] == 'E')
 				mlx_put_image_to_window(vars->mlx, vars->win,
-										images[E],64 * j, 64 * i);
+										vars->images[E],64 * j, 64 * i);
 			else if (vars->map[i][j] == '1')
 				mlx_put_image_to_window(vars->mlx, vars->win,
-										images[W],64 * j, 64 * i);
+										vars->images[W],64 * j, 64 * i);
 			j++;
 		}
 		i++;
@@ -69,16 +55,20 @@ int draw_entities(t_vars *vars)
 	return (0);
 }
 
-int	get_images_from_textures(t_vars *vars, void *images[5])
+int	get_images_from_textures(t_vars *vars)
 {
-	int length;
+	int	length;
+	int	map_x;
+	int	map_y;
 
-	length = 64;
-	images[P] = mlx_xpm_file_to_image(vars->mlx, PLAYER, &length, &length);
-	images[E] = mlx_xpm_file_to_image(vars->mlx, EXIT, &length, &length);
-	images[C] = mlx_xpm_file_to_image(vars->mlx, COLLECTIBLE, &length, &length);
-	images[W] = mlx_xpm_file_to_image(vars->mlx, WALL, &length, &length);
-	vars->player_image = images[P];
+	map_x = vars->map_size[X] * 64;
+	map_y = vars->map_size[Y] * 64 + 18;
+	vars->images[P] = mlx_xpm_file_to_image(vars->mlx, PLAYER, &length, &length);
+	vars->images[E] = mlx_xpm_file_to_image(vars->mlx, EXIT, &length, &length);
+	vars->images[C] = mlx_xpm_file_to_image(vars->mlx, COLLECTIBLE, &length, &length);
+	vars->images[W] = mlx_xpm_file_to_image(vars->mlx, WALL, &length, &length);
+	vars->images[BG] = mlx_xpm_file_to_image(vars->mlx, BACKGROUND, &map_x, &map_y);
+	vars->images[5] = NULL;
 	return (0);
 }
 

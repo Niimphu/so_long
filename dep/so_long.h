@@ -36,6 +36,12 @@
 # define X 1
 # define Y 0
 
+#define P 0
+#define E 1
+#define C 2
+#define W 3
+#define BG 4
+
 typedef struct	s_data {
 	void	*img;
 	char	*addr;
@@ -47,7 +53,7 @@ typedef struct	s_data {
 typedef struct	s_vars {
 	void	*mlx;
 	void	*win;
-	void	*player_image;
+	void	*images[6];
 	char	**map;
 	int 	collectible_count;
 	int		map_size[2];
@@ -71,6 +77,7 @@ int 	count_collectibles(t_vars *vars);
 
 int		so_long(t_vars *vars);
 
+int		get_images_from_textures(t_vars *vars);
 int 	draw_entities(t_vars *vars);
 int		draw_background(t_vars *vars);
 int 	update_move_counter(t_vars *vars);

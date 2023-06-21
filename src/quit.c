@@ -12,6 +12,8 @@
 
 #include "../dep/so_long.h"
 
+void	free_images(t_vars *vars);
+
 int	window_closed(t_vars *vars)
 {
 	mlx_clear_window(vars->mlx, vars->win);
@@ -21,8 +23,22 @@ int	window_closed(t_vars *vars)
 
 void	quit(t_vars *vars)
 {
+	free_images(vars);
 	mlx_loop_end(vars->mlx);
 	mlx_destroy_display(vars->mlx);
 	free_ppointer(vars->map);
+	free(vars->mlx);
 	exit(0);
+}
+
+void	free_images(t_vars *vars)
+{
+	int i;
+
+	i = 0;
+	while (vars->images[i])
+	{
+		mlx_destroy_image(vars->mlx, vars->images[i]);
+		i++;
+	}
 }

@@ -34,19 +34,16 @@ char	**read_map(int fd, char *name)
 	char	*line;
 	char	**map;
 	int		i;
-	int		len;
 
 	map = (char **)malloc(sizeof(char *)
 						  * (get_map_height(&fd, name) + 1));
 	line = get_next_line(fd);
 	if (!line)
 		return (NULL);
-	len = ft_strlen(line);
 	i = 0;
 	while (line)
 	{
-		map[i] = (char *)malloc(sizeof(char) * len - 1);
-		ft_strlcpy(map[i], line, len);
+		map[i] = ft_strtrim(line, "\n");
 		free(line);
 		line = get_next_line(fd);
 		i++;

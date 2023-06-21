@@ -6,7 +6,7 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 16:33:08 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/19 16:33:25 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/21 13:19:41 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	init(char *name, t_vars *vars)
 	vars->mlx = mlx_init();
 	vars->win = mlx_new_window(vars->mlx, vars->map_size[X] * 64,
 							   vars->map_size[Y] * 64 + 18, "so_looooong");
+	get_images_from_textures(vars);
 	return (0);
 }
 

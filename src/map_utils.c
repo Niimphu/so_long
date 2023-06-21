@@ -27,7 +27,6 @@ void	print_map(char **map)
 		i++;
 	}
 	ft_printf("\n");
-	return ;
 }
 
 int	*locate_first(char **map, char c, int coords[2])
