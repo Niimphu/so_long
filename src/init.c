@@ -55,24 +55,3 @@ int	set_vars(t_vars *vars)
 	vars->move_count = 0;
 	return (0);
 }
-
-int	count_collectibles(t_vars *vars)
-{
-	int	i;
-	int	j;
-
-	vars->collectible_count = 0;
-	i = 0;
-	while (vars->map[i])
-	{
-		j = 0;
-		while (vars->map[i][j])
-		{
-			if (vars->map[i][j] == 'C')
-				vars->collectible_count += 1;
-			j++;
-		}
-		i++;
-	}
-	return (0);
-}

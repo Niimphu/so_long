@@ -56,6 +56,27 @@ int	*locate_first(char **map, char c, int coords[2])
 	return (coords);
 }
 
+int	count_collectibles(t_vars *vars)
+{
+	int	i;
+	int	j;
+
+	vars->collectible_count = 0;
+	i = 0;
+	while (vars->map[i])
+	{
+		j = 0;
+		while (vars->map[i][j])
+		{
+			if (vars->map[i][j] == 'C')
+				vars->collectible_count += 1;
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
 int	*get_map_size(char **map, int size[2])
 {
 	int	i;
