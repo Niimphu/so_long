@@ -1,73 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_utils.c                                        :+:      :+:    :+:   */
+/*   check_map_duplicate.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/09 19:08:58 by yiwong            #+#    #+#             */
+/*   Created: 2023/06/24 17:32:37 by yiwong            #+#    #+#             */
 /*   Updated: 2023/06/24 17:34:55 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../dep/so_long.h"
+#include "../../dep/so_long.h"
 
-void	print_map(char **map)
+int	check_map_duplicate_entities(char **map)
 {
+	int	player_count;
+	int	exit_count;
 	int	i;
 	int	j;
 
+	player_count = 0;
+	exit_count = 0;
 	i = 0;
-	while (map[i])
-	{
-		j = 0;
-		while (map[i][j])
-			ft_printf("%c", map[i][j++]);
-		ft_printf("\n");
-		i++;
-	}
-	ft_printf("\n");
-}
-
-int	*locate_first(char **map, char c, int coords[2])
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	coords[0] = 0;
-	coords[1] = 0;
 	while (map[i])
 	{
 		j = 0;
 		while (map[i][j])
 		{
-			if (map[i][j] == c)
-			{
-				coords[0] = i;
-				coords[1] = j;
-			}
-			j++;
+			player_count += (map[i][j] == 'P');
+			exit_count += (map[i][j++] == 'E');
+			if (player_count > 1 || exit_count > 1)
+				return (DUP_ENTITIES);
 		}
 		i++;
 	}
-	if (coords[0] == 0 && coords[1] == 0)
-		return (NULL);
-	return (coords);
-}
-
-int	*get_map_size(char **map, int size[2])
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (map[i + 1])
-		i++;
-	while (map[i][j + 1])
-		j++;
-	size[0] = ++i;
-	size[1] = ++j;
-	return (size);
+	if (player_count != 1 || exit_count != 1)
+		return (DUP_ENTITIES);
+	return (OK);
 }

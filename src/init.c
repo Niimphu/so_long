@@ -20,7 +20,8 @@ int	init(char *name, t_vars *vars)
 	int	x;
 	int	y;
 
-	new_map(name, vars);
+	if (new_map(name, vars) != OK)
+		error_exit(FAIL);
 	x = vars->map_size[X] * 64;
 	y = vars->map_size[Y] * 64 + 18;
 	vars->mlx = mlx_init();
@@ -41,9 +42,9 @@ int	new_map(char *name, t_vars *vars)
 	vars->map = read_map(fd, name);
 	close(fd);
 	if (!vars->map)
-		error(FAIL);
+		error_exit(FAIL);
 	set_vars(vars);
-	return (0);
+	return (OK);
 }
 
 int	set_vars(t_vars *vars)

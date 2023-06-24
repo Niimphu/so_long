@@ -36,8 +36,10 @@ int	map_check(char *name)
 	if (!fd)
 		return (MAP_NAME);
 	map = read_map(fd, name);
-	if (!(map) || !is_map_valid(map))
+	if (!map)
 		error_code = BAD_MAP;
+	else
+		error_code = validate_map(map);
 	close(fd);
 	free_ppointer(map);
 	return (error_code);
