@@ -19,7 +19,9 @@ LDFLAGS =
 SRC = src/main.c \
 		src/init.c \
 		src/ready_check.c \
-		src/read_map.c \
+		src/map_functions/open_map.c \
+		src/map_functions/read_map.c \
+		src/map_functions/map_utils.c \
 		src/map_checkers/validate_map.c \
 		src/map_checkers/check_map_border.c \
 		src/map_checkers/check_map_duplicate.c \
@@ -32,7 +34,6 @@ SRC = src/main.c \
 		src/movement.c \
 		src/error.c \
 		src/quit.c \
-		src/map_utils.c \
 		$(GNL)
 
 GNL = dep/lib/get_next_line/get_next_line.c \
