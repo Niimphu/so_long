@@ -42,10 +42,10 @@
 # define Y 0
 
 #define P 0
-#define E 1
-#define C 2
-#define W 3
-#define BG 4
+#define E 0
+#define C 1
+#define W 2
+#define BG 3
 //
 //typedef struct	s_data {
 //	void	*img;
@@ -58,7 +58,8 @@
 typedef struct	s_vars {
 	void	*mlx;
 	void	*win;
-	void	*images[6];
+	void	*images[5];
+	void	*player_images[3];
 	char	**map;
 	int 	collectible_count;
 	int		map_size[2];
@@ -89,13 +90,15 @@ int 	count_collectibles(t_vars *vars);
 int		so_long(t_vars *vars);
 
 int		get_images_from_textures(t_vars *vars);
-int 	draw_entities(t_vars *vars);
+int		draw(t_vars *vars);
+int		draw_player(t_vars *vars);
+int		draw_entities(t_vars *vars);
 int		draw_background(t_vars *vars);
-int 	update_move_counter(t_vars *vars);
+int		update_move_counter(t_vars *vars);
 
 int		window_closed(t_vars *vars);
 void	error_exit(int error_code);
-void 	quit(t_vars *vars);
+void	quit(t_vars *vars);
 
 void	print_map(char **map);
 int		*locate_first(char **map, char c, int coords[2]);

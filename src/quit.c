@@ -23,8 +23,8 @@ int	window_closed(t_vars *vars)
 
 void	quit(t_vars *vars)
 {
-	free_images(vars);
 	mlx_loop_end(vars->mlx);
+	free_images(vars);
 	mlx_destroy_display(vars->mlx);
 	free_ppointer(vars->map);
 	free(vars->mlx);
@@ -39,6 +39,12 @@ void	free_images(t_vars *vars)
 	while (vars->images[i])
 	{
 		mlx_destroy_image(vars->mlx, vars->images[i]);
+		i++;
+	}
+	i = 0;
+	while (vars->player_images[i])
+	{
+		mlx_destroy_image(vars->mlx, vars->player_images[i]);
 		i++;
 	}
 }

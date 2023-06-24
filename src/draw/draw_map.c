@@ -31,9 +31,7 @@ int	draw_entities(t_vars *vars)
 		j = 0;
 		while (vars->map[i][j])
 		{
-			if (vars->map[i][j] == 'P')
-				draw_entity(vars, j, i, P);
-			else if (vars->map[i][j] == 'C')
+			if (vars->map[i][j] == 'C')
 				draw_entity(vars, j, i, C);
 			else if (vars->map[i][j] == 'E')
 				draw_entity(vars, j, i, E);
