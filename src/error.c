@@ -45,6 +45,8 @@ char	*get_error_message(int error_code)
 		return ("Map is not fully enclosed by walls.\n");
 	if (error_code == NO_PATH)
 		return ("No valid paths from player to all collectibles and exit found.\n");
+	if (error_code == INVALID_CHAR)
+		return ("Unknown characters found in map.\n");
 	else
 		return ("Undefined\n");
 }

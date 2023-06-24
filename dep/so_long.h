@@ -36,6 +36,7 @@
 # define DUP_ENTITIES 15
 # define BAD_BORDER 16
 # define NO_PATH 17
+# define INVALID_CHAR 18
 
 # define X 1
 # define Y 0
@@ -76,6 +77,7 @@ int		check_map_rectangular(char **map);
 int		check_map_duplicate_entities(char **map);
 int		check_map_border(char **map);
 int		check_map_pathing(char **map);
+int 	check_invalid_characters(char **map);
 
 int		init(char *name, t_vars *vars);
 

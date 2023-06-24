@@ -20,8 +20,12 @@ SRC = src/main.c \
 		src/init.c \
 		src/ready_check.c \
 		src/read_map.c \
-		src/map_checkers/validate_map.c src/map_checkers/check_map_border.c src/map_checkers/check_map_duplicate.c \
-		src/map_checkers/check_map_pathing.c src/map_checkers/check_map_rectangular.c \
+		src/map_checkers/validate_map.c \
+		src/map_checkers/check_map_border.c \
+		src/map_checkers/check_map_duplicate.c \
+		src/map_checkers/check_map_pathing.c \
+		src/map_checkers/check_map_rectangular.c \
+		src/map_checkers/check_invalid_characters.c \
 		src/so_long.c \
 		src/draw.c \
 		src/input_handler.c \

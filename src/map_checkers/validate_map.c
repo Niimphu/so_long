@@ -15,12 +15,14 @@
 int	validate_map(char **map)
 {
 	if (check_map_rectangular(map))
-		return (check_map_rectangular(map));
+		return (NON_RECT);
 	if (check_map_duplicate_entities(map))
-		return (check_map_duplicate_entities(map));
+		return (DUP_ENTITIES);
 	if (check_map_border(map))
-		return (check_map_border(map));
+		return (BAD_BORDER);
+	if (check_invalid_characters(map))
+		return (INVALID_CHAR);
 	if (check_map_pathing(map))
-		return (check_map_pathing(map));
+		return (NO_PATH);
 	return (OK);
 }
