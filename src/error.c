@@ -15,21 +15,36 @@
 #define RED "\033[1;31m"
 #define RESET "\033[1;0m"
 
-void	error(int error_code)
-{
-	int	ret;
+char	*get_error_message(int error_code);
 
-	ret = write(2, RED, 8);
-	if (error_code == ARGN)
-		ret = write(2, "Error\nToo many arguments\n", 25);
-	else if (error_code == MAP_NAME)
-		ret = write(2, "Error\nInvalid argument\n", 23);
-	else if (error_code == BAD_MAP)
-		ret = write(2, "Error\nInvalid map\n", 18);
-	else
-		ret = write(2, "Error\nUndefined\n", 16);
-	ret = write(2, RESET, 7);
-	if (ret < 0)
-		exit(error_code);
+void	error_exit(int error_code)
+{
+	char	*error_message;
+
+	write(2, RED, 8);
+	write(2, "Error\n", 6);
+	error_message = get_error_message(error_code);
+	write(2, error_message, ft_strlen(error_message) * sizeof(char));
+	write(2, RESET, 7);
 	exit(error_code);
+}
+
+char	*get_error_message(int error_code)
+{
+	if (error_code == ARGN)
+		return ("Too many arguments.\n");
+	if (error_code == MAP_NAME)
+		return ("Map not found.\n");
+	if (error_code == BAD_MAP)
+		return ("Map read failed.\n");
+	if (error_code == NON_RECT)
+		return ("Map is not rectangular.\n");
+	if (error_code == DUP_ENTITIES)
+		return ("Duplicate player or exits found.\n");
+	if (error_code == BAD_BORDER)
+		return ("Map is not fully enclosed by walls.\n");
+	if (error_code == NO_PATH)
+		return ("No valid paths from player to all collectibles and exit found.\n");
+	else
+		return ("Undefined\n");
 }
