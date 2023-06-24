@@ -29,7 +29,8 @@ SRC = src/main.c \
 		src/map_checkers/check_map_rectangular.c \
 		src/map_checkers/check_invalid_characters.c \
 		src/so_long.c \
-		src/draw.c \
+		src/draw/get_images.c \
+		src/draw/draw_map.c \
 		src/input_handler.c \
 		src/movement.c \
 		src/error.c \
