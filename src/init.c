@@ -15,7 +15,7 @@
 int	set_vars(t_vars *vars);
 int	new_map(char *name, t_vars *vars);
 
-int	init(char *name, t_vars *vars)
+int	initialise(char *name, t_vars *vars)
 {
 	int	x;
 	int	y;

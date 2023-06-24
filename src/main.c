@@ -22,9 +22,9 @@ int	main(int argc, char **argv)
 	if (error_code != OK)
 		error_exit(error_code);
 	if (argc == 1)
-		init(NULL, &vars);
+		initialise(NULL, &vars);
 	else
-		init(argv[1], &vars);
+		initialise(argv[1], &vars);
 	so_long(&vars);
 	return (0);
 }

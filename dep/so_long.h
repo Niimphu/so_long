@@ -79,7 +79,7 @@ int		check_map_border(char **map);
 int		check_map_pathing(char **map);
 int 	check_invalid_characters(char **map);
 
-int		init(char *name, t_vars *vars);
+int		initialise(char *name, t_vars *vars);
 
 int		key_pressed(int keycode, t_vars *vars);
 int 	move_input(t_vars *vars, int keycode);
