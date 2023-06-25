@@ -17,5 +17,6 @@ int	draw(t_vars *vars)
 	draw_background(vars);
 	draw_entities(vars);
 	draw_player(vars);
+	update_move_counter(vars);
 	return (0);
 }

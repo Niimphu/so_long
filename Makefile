@@ -39,10 +39,36 @@ SRC = src/main.c \
 		src/quit.c \
 		$(GNL)
 
+BONUS_SRC = src/main.c \
+		src/initialise.c \
+		src/ready_check.c \
+		src/map_functions/open_map.c \
+		src/map_functions/read_map.c \
+		src/map_functions/map_utils.c \
+		src/map_checkers/validate_map.c \
+		src/map_checkers/check_map_border.c \
+		src/map_checkers/check_map_duplicate.c \
+		src/map_checkers/check_map_pathing.c \
+		src/map_checkers/check_map_rectangular.c \
+		src/map_checkers/check_invalid_characters.c \
+		src/bonus/so_long_bonus.c \
+		src/bonus/time_loop.c \
+		src/draw/draw.c \
+		src/draw/get_images.c \
+		src/draw/draw_player.c \
+		src/draw/draw_map.c \
+		src/input_handler.c \
+		src/movement.c \
+		src/error.c \
+		src/quit.c \
+		$(GNL)
+
 GNL = dep/lib/get_next_line/get_next_line.c \
 		dep/lib/get_next_line/get_next_line_utils.c
 
 OBJ = $(SRC:.c=.o)
+
+BONUS_OBJ = $(BONUS_SRC:.c=.o)
 
 MLX_DIR = dep/lib/mlx_linux
 
@@ -82,6 +108,20 @@ $(NAME): $(OBJ)
 	@$(CC) $(LDFLAGS) $(OBJ) -o $(NAME) $(LIBS)
 	@echo -e "$(GREEN)Make done!$(END)"
 
+bonus: $(BONUS_OBJ)
+	@echo -ne "$(PURPLE)Making bonus $(END)"
+	@echo -ne "$(PURPLE)███$(END)"
+	@make -sC $(MLX_DIR)
+	@echo -ne "$(PURPLE)███$(END)"
+	@make -sC dep/lib/libft
+	@echo -ne "$(PURPLE)████$(END)"
+	@make -sC dep/lib/ft_printf
+	@echo -ne "$(PURPLE)████$(END)"
+	@make -sC dep/lib/lib_me42
+	@echo -e "$(PURPLE)███$(END)"
+	@$(CC) $(LDFLAGS) $(BONUS_OBJ) -o $(NAME) $(LIBS)
+	@echo -e "$(GREEN)Make bonus done!$(END)"
+
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 
@@ -96,7 +136,7 @@ clean:
 	@echo -ne "$(BLUE)███$(END)"
 	@make fclean -sC dep/lib/lib_me42
 	@echo -e "$(BLUE)███$(END)"
-	@rm -f $(OBJ)
+	@rm -f $(OBJ) $(BONUS_OBJ)
 	@echo -e "$(GREEN)Cleaning done!$(END)"
 
 fclean: clean
@@ -104,4 +144,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus

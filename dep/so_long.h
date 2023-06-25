@@ -51,7 +51,8 @@ typedef struct s_vars {
 	void	*mlx;
 	void	*win;
 	void	*images[5];
-	void	*player_images[3];
+	void	*player_images[9];
+	int		frame;
 	char	**map;
 	int		collectible_count;
 	int		map_size[2];
