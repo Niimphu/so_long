@@ -6,7 +6,7 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 17:20:35 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/21 18:03:06 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/25 14:00:08 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	*get_error_message(int error_code)
 	if (error_code == BAD_BORDER)
 		return ("Map is not fully enclosed by walls.\n");
 	if (error_code == NO_PATH)
-		return ("No valid paths from player to all collectibles and exit found.\n");
+		return ("No valid paths found.\n");
 	if (error_code == INVALID_CHAR)
 		return ("Unknown characters found in map.\n");
 	return ("Undefined\n");
