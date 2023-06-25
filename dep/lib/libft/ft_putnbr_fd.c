@@ -6,7 +6,7 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 17:26:17 by yiwong            #+#    #+#             */
-/*   Updated: 2023/02/11 17:52:55 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/25 14:09:33 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ft_putnbr_fd(int n, int fd)
 	{
 		ft_putchar_fd('-', fd);
 		n = -n;
-	}	
+	}
 	ft_putnbr_write(n, fd);
 	return ;
 }
