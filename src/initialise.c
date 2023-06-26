@@ -6,7 +6,7 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 16:33:08 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/21 18:06:53 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/26 15:13:59 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int	set_vars(t_vars *vars)
 {
 	locate_first(vars->map, 'E', vars->exit_coords);
 	get_map_size(vars->map, vars->map_size);
+//	print_map(vars->map);
 	count_collectibles(vars);
 	vars->frame = 0;
 	vars->move_count = 0;

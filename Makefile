@@ -12,7 +12,7 @@
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -g -Isources
+CFLAGS = -Wall -Wextra -Werror -g -Isources -fsanitize=address
 
 LDFLAGS =
 
@@ -31,7 +31,7 @@ SRC = src/main.c \
 		src/so_long.c \
 		src/draw/draw.c \
 		src/draw/get_images.c \
-		src/draw/draw_player.c \
+		src/draw/draw_characters.c \
 		src/draw/draw_map.c \
 		src/input_handler.c \
 		src/movement.c \
@@ -55,7 +55,7 @@ BONUS_SRC = src/main.c \
 		src/bonus/time_loop.c \
 		src/draw/draw.c \
 		src/draw/get_images.c \
-		src/draw/draw_player.c \
+		src/draw/draw_characters.c \
 		src/draw/draw_map.c \
 		src/input_handler.c \
 		src/movement.c \

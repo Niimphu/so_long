@@ -12,16 +12,17 @@
 
 #include "../../dep/so_long.h"
 
-#define PLAYER "sprites/Player.xpm"
-#define PLAYER2 "sprites/Player2.xpm"
-#define PLAYER3 "sprites/Player3.xpm"
-#define PLAYER4 "sprites/Player4.xpm"
-#define PLAYER5 "sprites/Player5.xpm"
-#define PLAYER6 "sprites/Player6.xpm"
-#define PLAYER7 "sprites/Player7.xpm"
-#define PLAYER8 "sprites/Player8.xpm"
-#define COLLECTIBLE "sprites/Collectible.xpm"
-#define EXIT "sprites/Exit.xpm"
+#define PLAYER "sprites/Player/Player4.xpm"
+#define PLAYER2 "sprites/Player/Player3.xpm"
+#define PLAYER3 "sprites/Player/Player2.xpm"
+#define PLAYER4 "sprites/Player/Player.xpm"
+#define PLAYER5 "sprites/Player/Player.xpm"
+#define PLAYER6 "sprites/Player/Player2.xpm"
+#define PLAYER7 "sprites/Player/Player3.xpm"
+#define PLAYER8 "sprites/Player/Player4.xpm"
+#define COLLECTIBLE "sprites/Collectible/Collectible.xpm"
+#define EXIT "sprites/Exit/Exit.xpm"
+#define EXIT2 "sprites/Exit/Exit2.xpm"
 #define WALL "sprites/Wall.xpm"
 #define BACKGROUND "sprites/BG.xpm"
 
@@ -45,6 +46,9 @@ int	get_images_from_textures(t_vars *vars)
 	vars->player_images[6] = get_image(vars, PLAYER7, length, length);
 	vars->player_images[7] = get_image(vars, PLAYER8, length, length);
 	vars->player_images[8] = NULL;
+	vars->exit_images[0] = get_image(vars, EXIT, length, length);
+	vars->exit_images[1] = get_image(vars, EXIT2, length, length);
+	vars->exit_images[2] = NULL;
 	vars->images[E] = get_image(vars, EXIT, length, length);
 	vars->images[C] = get_image(vars, COLLECTIBLE, length, length);
 	vars->images[W] = get_image(vars, WALL, length, length);

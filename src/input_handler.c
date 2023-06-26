@@ -14,6 +14,7 @@
 
 int	key_pressed(int keycode, t_vars *vars)
 {
+//	print_map(vars->map);
 	if (keycode == XK_Escape)
 	{
 		mlx_clear_window(vars->mlx, vars->win);

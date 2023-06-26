@@ -21,7 +21,7 @@ int	loop(t_vars *vars)
 
 	if (!iterations)
 		iterations = 0;
-	time_since_start = clock() / 120000;
+	time_since_start = clock() / 50000;
 	if (time_since_start > iterations)
 	{
 		iterations++;

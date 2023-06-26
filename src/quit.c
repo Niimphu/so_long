@@ -23,6 +23,7 @@ int	window_closed(t_vars *vars)
 
 void	quit(t_vars *vars)
 {
+//	print_map(vars->map);
 	mlx_loop_end(vars->mlx);
 	free_images(vars);
 	mlx_destroy_display(vars->mlx);

@@ -16,6 +16,7 @@ int	draw_player(t_vars *vars)
 {
 	int	coords[2];
 
+//	print_map(vars->map);
 	locate_first(vars->map, 'P', coords);
 	mlx_put_image_to_window(vars->mlx, vars->win,
 		vars->player_images[vars->frame], coords[X] * 64, coords[Y] * 64);

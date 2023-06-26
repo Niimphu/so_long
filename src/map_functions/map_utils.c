@@ -37,6 +37,7 @@ int	*locate_first(char **map, char c, int coords[2])
 	i = 0;
 	coords[0] = 0;
 	coords[1] = 0;
+//	print_map(map);
 	while (map[i])
 	{
 		j = 0;
@@ -63,6 +64,7 @@ int	count_collectibles(t_vars *vars)
 
 	vars->collectible_count = 0;
 	i = 0;
+//	print_map(vars->map);
 	while (vars->map[i])
 	{
 		j = 0;
