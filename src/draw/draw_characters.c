@@ -21,3 +21,11 @@ int	draw_player(t_vars *vars)
 		vars->player_images[vars->frame], coords[X] * 64, coords[Y] * 64);
 	return (0);
 }
+
+int	draw_enemy(t_vars *vars, int x, int y)
+{
+	x *= 64;
+	y *= 64;
+	mlx_put_image_to_window(vars->mlx, vars->win, vars->enemy_images[vars->frame], x, y);
+	return (0);
+}

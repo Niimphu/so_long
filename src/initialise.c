@@ -12,7 +12,7 @@
 
 #include "../dep/so_long.h"
 
-int	set_vars(t_vars *vars);
+int	set_vars(t_vars *vars, char *name);
 int	new_map(char *name, t_vars *vars);
 
 int	initialise(char *name, t_vars *vars)
@@ -43,16 +43,17 @@ int	new_map(char *name, t_vars *vars)
 	close(fd);
 	if (!vars->map)
 		error_exit(FAIL);
-	set_vars(vars);
+	set_vars(vars, name);
 	return (OK);
 }
 
-int	set_vars(t_vars *vars)
+int	set_vars(t_vars *vars, char *name)
 {
 	locate_first(vars->map, 'E', vars->exit_coords);
 	get_map_size(vars->map, vars->map_size);
 	count_collectibles(vars);
 	vars->frame = 0;
 	vars->move_count = 0;
+	vars->name = name;
 	return (0);
 }
