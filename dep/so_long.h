@@ -45,12 +45,14 @@ typedef struct s_vars {
 	void	*mlx;
 	void	*win;
 	void	*player_images[9];
+	void	*enemy_images[9];
 	void	*collectible_images[5];
 	void	*exit_images[3];
 	void	*wall;
 	void	*background;
 	int		frame;
 	char	**map;
+	char	*name;
 	int		collectible_count;
 	int		map_size[2];
 	int		exit_coords[2];
@@ -75,6 +77,7 @@ int		draw(t_vars *vars);
 int		draw_player(t_vars *vars);
 int		draw_entities(t_vars *vars);
 int		draw_background(t_vars *vars);
+int		draw_enemy(t_vars *vars, int x, int y);
 int		update_move_counter(t_vars *vars);
 
 int		initialise(char *name, t_vars *vars);
