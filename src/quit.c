@@ -48,6 +48,12 @@ void	free_images(t_vars *vars)
 		i++;
 	}
 	i = 0;
+	while (vars->enemy_images[i])
+	{
+		mlx_destroy_image(vars->mlx, vars->enemy_images[i]);
+		i++;
+	}
+	i = 0;
 	while (vars->exit_images[i])
 	{
 		mlx_destroy_image(vars->mlx, vars->exit_images[i]);
