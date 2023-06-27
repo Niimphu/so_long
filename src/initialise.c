@@ -35,7 +35,7 @@ int	new_map(char *name, t_vars *vars)
 	int	fd;
 
 	if (!name)
-		name = "valid\0";
+		name = "default";
 	fd = open_map_file(name);
 	if (fd < 0)
 		return (FAIL);
@@ -54,6 +54,9 @@ int	set_vars(t_vars *vars, char *name)
 	count_collectibles(vars);
 	vars->frame = 0;
 	vars->move_count = 0;
-	vars->name = name;
+	if (!ft_strncmp(name, "default", 8))
+		vars->level = 1;
+	else
+		vars->level = 0;
 	return (0);
 }

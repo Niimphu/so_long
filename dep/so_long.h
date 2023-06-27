@@ -52,7 +52,7 @@ typedef struct s_vars {
 	void	*background;
 	int		frame;
 	char	**map;
-	char	*name;
+	int 	level;
 	int		collectible_count;
 	int		map_size[2];
 	int		exit_coords[2];
