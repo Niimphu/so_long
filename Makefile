@@ -12,7 +12,7 @@
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -g -Isources -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g -Isources
 
 LDFLAGS =
 
@@ -85,6 +85,8 @@ LIBS += -lX11 -lXext -lft -lmlx
 
 NAME = so_long
 
+BONUS = so_long_bonus
+
 SHELL = bash
 
 BLUE=\033[0;34m
@@ -108,7 +110,7 @@ $(NAME): $(OBJ)
 	@$(CC) $(LDFLAGS) $(OBJ) -o $(NAME) $(LIBS)
 	@echo -e "$(GREEN)Make done!$(END)"
 
-bonus: $(BONUS_OBJ)
+$(BONUS): $(BONUS_OBJ)
 	@echo -ne "$(PURPLE)Making bonus $(END)"
 	@echo -ne "$(PURPLE)███$(END)"
 	@make -sC $(MLX_DIR)
@@ -119,8 +121,10 @@ bonus: $(BONUS_OBJ)
 	@echo -ne "$(PURPLE)████$(END)"
 	@make -sC dep/lib/lib_me42
 	@echo -e "$(PURPLE)███$(END)"
-	@$(CC) $(LDFLAGS) $(BONUS_OBJ) -o $(NAME) $(LIBS)
+	@$(CC) $(LDFLAGS) $(BONUS_OBJ) -o $(BONUS) $(LIBS)
 	@echo -e "$(GREEN)Make bonus done!$(END)"
+
+bonus: $(BONUS)
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
