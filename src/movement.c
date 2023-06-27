@@ -6,7 +6,7 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 15:33:20 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/21 18:09:04 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/26 20:21:51 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int	move_input(t_vars *vars, int keycode)
 		direction = DOWN;
 	else if (keycode == XK_d)
 		direction = RIGHT;
-//	print_map(vars->map);
 	locate_first(vars->map, 'P', coords);
 	target[X] = coords[X];
 	target[Y] = coords[Y];

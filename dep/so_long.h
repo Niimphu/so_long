@@ -41,18 +41,14 @@
 # define X 1
 # define Y 0
 
-# define P 0
-# define E 0
-# define C 1
-# define W 2
-# define BG 3
-
 typedef struct s_vars {
 	void	*mlx;
 	void	*win;
-	void	*images[5];
 	void	*player_images[9];
+	void	*collectible_images[5];
 	void	*exit_images[3];
+	void	*wall;
+	void	*background;
 	int		frame;
 	char	**map;
 	int		collectible_count;

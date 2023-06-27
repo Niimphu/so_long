@@ -12,8 +12,9 @@
 
 #include "../../dep/so_long.h"
 
-int	draw_entity(t_vars *vars, int i, int j, int id);
+int	draw_collectible(t_vars *vars, int x, int y);
 int	draw_exit(t_vars *vars, int x, int y);
+int	draw_wall(t_vars *vars, int x, int y);
 
 int	draw_entities(t_vars *vars)
 {
@@ -27,11 +28,11 @@ int	draw_entities(t_vars *vars)
 		while (vars->map[i][j])
 		{
 			if (vars->map[i][j] == 'C')
-				draw_entity(vars, j, i, C);
+				draw_collectible(vars, j, i);
 			else if (vars->map[i][j] == 'E')
 				draw_exit(vars, j, i);
 			else if (vars->map[i][j] == '1')
-				draw_entity(vars, j, i, W);
+				draw_wall(vars, j, i);
 			j++;
 		}
 		i++;
@@ -39,11 +40,20 @@ int	draw_entities(t_vars *vars)
 	return (0);
 }
 
-int	draw_entity(t_vars *vars, int x, int y, int id)
+int	draw_wall(t_vars *vars, int x, int y)
 {
 	x *= 64;
 	y *= 64;
-	mlx_put_image_to_window(vars->mlx, vars->win, vars->images[id], x, y);
+	mlx_put_image_to_window(vars->mlx, vars->win, vars->wall, x, y);
+	return (0);
+}
+
+
+int	draw_collectible(t_vars *vars, int x, int y)
+{
+	x *= 64;
+	y *= 64;
+	mlx_put_image_to_window(vars->mlx, vars->win, vars->collectible_images[vars->frame % 4], x, y);
 	return (0);
 }
 

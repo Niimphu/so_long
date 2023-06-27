@@ -21,6 +21,9 @@
 #define PLAYER7 "sprites/Player/Player3.xpm"
 #define PLAYER8 "sprites/Player/Player4.xpm"
 #define COLLECTIBLE "sprites/Collectible/Collectible.xpm"
+#define COLLECTIBLE2 "sprites/Collectible/Collectible2.xpm"
+#define COLLECTIBLE3 "sprites/Collectible/Collectible3.xpm"
+#define COLLECTIBLE4 "sprites/Collectible/Collectible4.xpm"
 #define EXIT "sprites/Exit/Exit.xpm"
 #define EXIT2 "sprites/Exit/Exit2.xpm"
 #define WALL "sprites/Wall.xpm"
@@ -49,11 +52,13 @@ int	get_images_from_textures(t_vars *vars)
 	vars->exit_images[0] = get_image(vars, EXIT, length, length);
 	vars->exit_images[1] = get_image(vars, EXIT2, length, length);
 	vars->exit_images[2] = NULL;
-	vars->images[E] = get_image(vars, EXIT, length, length);
-	vars->images[C] = get_image(vars, COLLECTIBLE, length, length);
-	vars->images[W] = get_image(vars, WALL, length, length);
-	vars->images[BG] = get_image(vars, BACKGROUND, map_x, map_y);
-	vars->images[4] = NULL;
+	vars->collectible_images[0] = get_image(vars, COLLECTIBLE, length, length);
+	vars->collectible_images[1] = get_image(vars, COLLECTIBLE2, length, length);
+	vars->collectible_images[2] = get_image(vars, COLLECTIBLE3, length, length);
+	vars->collectible_images[3] = get_image(vars, COLLECTIBLE4, length, length);
+	vars->collectible_images[4] = NULL;
+	vars->wall = get_image(vars, WALL, map_x, map_y);
+	vars->background = get_image(vars, BACKGROUND, map_x, map_y);
 	return (0);
 }
 

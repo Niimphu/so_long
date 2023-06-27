@@ -6,28 +6,11 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 19:08:58 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/24 17:34:55 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/26 20:21:43 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../dep/so_long.h"
-
-void	print_map(char **map)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (map[i])
-	{
-		j = 0;
-		while (map[i][j])
-			ft_printf("%c", map[i][j++]);
-		ft_printf("\n");
-		i++;
-	}
-	ft_printf("\n");
-}
 
 int	*locate_first(char **map, char c, int coords[2])
 {
@@ -37,7 +20,6 @@ int	*locate_first(char **map, char c, int coords[2])
 	i = 0;
 	coords[0] = 0;
 	coords[1] = 0;
-//	print_map(map);
 	while (map[i])
 	{
 		j = 0;
@@ -64,7 +46,6 @@ int	count_collectibles(t_vars *vars)
 
 	vars->collectible_count = 0;
 	i = 0;
-//	print_map(vars->map);
 	while (vars->map[i])
 	{
 		j = 0;
@@ -93,4 +74,21 @@ int	*get_map_size(char **map, int size[2])
 	size[0] = ++i;
 	size[1] = ++j;
 	return (size);
+}
+
+void	print_map(char **map)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+			ft_printf("%c", map[i][j++]);
+		ft_printf("\n");
+		i++;
+	}
+	ft_printf("\n");
 }

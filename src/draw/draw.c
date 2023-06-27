@@ -23,7 +23,7 @@ int	draw(t_vars *vars)
 
 int	draw_background(t_vars *vars)
 {
-	mlx_put_image_to_window(vars->mlx, vars->win, vars->images[BG], 0, 0);
+	mlx_put_image_to_window(vars->mlx, vars->win, vars->background, 0, 0);
 	return (0);
 }
 

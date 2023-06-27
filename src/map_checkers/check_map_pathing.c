@@ -45,14 +45,14 @@ char	**propagate_path(char **map)
 
 	i = locate_first(map, 'P', coords)[0];
 	j = locate_first(map, 'P', coords)[1];
-	if (map[i][j + 1] != '1' && map[i][j + 1] != 'V' && map[i][j + 1] != 'P')
+	if (map[i][j + 1] != '1' && map[i][j + 1] != 'X' && map[i][j + 1] != 'P')
 		map[i][j + 1] = 'P';
-	if (map[i][j - 1] != '1' && map[i][j - 1] != 'V' && map[i][j - 1] != 'P')
+	if (map[i][j - 1] != '1' && map[i][j - 1] != 'X' && map[i][j - 1] != 'P')
 		map[i][j - 1] = 'P';
-	if (map[i + 1][j] != '1' && map[i + 1][j] != 'V' && map[i + 1][j] != 'P')
+	if (map[i + 1][j] != '1' && map[i + 1][j] != 'X' && map[i + 1][j] != 'P')
 		map[i + 1][j] = 'P';
-	if (map[i - 1][j] != '1' && map[i - 1][j] != 'V' && map[i - 1][j] != 'P')
+	if (map[i - 1][j] != '1' && map[i - 1][j] != 'X' && map[i - 1][j] != 'P')
 		map[i - 1][j] = 'P';
-	map[i][j] = 'V';
+	map[i][j] = 'X';
 	return (map);
 }

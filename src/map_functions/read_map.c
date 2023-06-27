@@ -20,7 +20,7 @@ char	**read_map(int fd, char *name)
 	char	**map;
 	int		i;
 
-	map = (char **)malloc(sizeof(char *) * (get_map_height(&fd, name) + 1));
+	map = malloc(sizeof(char *) * (get_map_height(&fd, name) + 1));
 	line = get_next_line(fd);
 	if (!line)
 		return (NULL);
