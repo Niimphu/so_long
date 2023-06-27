@@ -19,6 +19,7 @@
 
 int	check_valid_move(t_vars *vars, int direction, int coords[2]);
 int	move_player(t_vars *vars, int coords[2], int target[2]);
+int	exit_reached(t_vars *vars);
 
 int	move_input(t_vars *vars, int keycode)
 {
@@ -68,6 +69,9 @@ int	move_player(t_vars *vars, int coords[2], int target[2])
 
 	if (vars->map[target[Y]][target[X]] == 'C')
 		vars->collectible_count -= 1;
+	else if (vars->map[target[Y]][target[X]] == 'H' ||
+		vars->map[target[Y]][target[X]] == 'V')
+		return (new_map(vars));
 	if (coords[X] == vars->exit_coords[X] && coords[Y] == vars->exit_coords[Y])
 		vars->map[coords[Y]][coords[X]] = 'E';
 	else
@@ -76,6 +80,18 @@ int	move_player(t_vars *vars, int coords[2], int target[2])
 	vars->move_count += 1;
 	if (vars->collectible_count == 0
 		&& !locate_first(vars->map, 'E', exit_coords))
+		exit_reached(vars);
+	return (0);
+}
+
+int	exit_reached(t_vars *vars)
+{
+	if (ft_strncmp(vars->name, "default", 7))
 		quit(vars);
+	else
+	{
+		vars->name = "test";
+		new_map(vars);
+	}
 	return (0);
 }

@@ -52,7 +52,7 @@ typedef struct s_vars {
 	void	*background;
 	int		frame;
 	char	**map;
-	int 	level;
+	char	*name;
 	int		collectible_count;
 	int		map_size[2];
 	int		exit_coords[2];
@@ -63,6 +63,7 @@ int		arg_check(int argc, char **argv);
 
 int		open_map_file(char *name);
 char	**read_map(int fd, char *name);
+int		new_map(t_vars *vars);
 int		map_check(char *name);
 
 int		validate_map(char **map);

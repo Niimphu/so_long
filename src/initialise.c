@@ -12,15 +12,15 @@
 
 #include "../dep/so_long.h"
 
-int	set_vars(t_vars *vars, char *name);
-int	new_map(char *name, t_vars *vars);
+int	set_vars(t_vars *vars);
 
 int	initialise(char *name, t_vars *vars)
 {
 	int	x;
 	int	y;
 
-	if (new_map(name, vars) != OK)
+	vars->name = name;
+	if (new_map(vars) != OK)
 		error_exit(FAIL);
 	x = vars->map_size[X] * 64;
 	y = vars->map_size[Y] * 64 + 18;
@@ -30,33 +30,29 @@ int	initialise(char *name, t_vars *vars)
 	return (0);
 }
 
-int	new_map(char *name, t_vars *vars)
+int	new_map(t_vars *vars)
 {
 	int	fd;
 
-	if (!name)
-		name = "default";
-	fd = open_map_file(name);
+	if (!vars->name)
+		vars->name = "default";
+	fd = open_map_file(vars->name);
 	if (fd < 0)
 		return (FAIL);
-	vars->map = read_map(fd, name);
+	vars->map = read_map(fd, vars->name);
 	close(fd);
 	if (!vars->map)
 		error_exit(FAIL);
-	set_vars(vars, name);
+	set_vars(vars);
 	return (OK);
 }
 
-int	set_vars(t_vars *vars, char *name)
+int	set_vars(t_vars *vars)
 {
 	locate_first(vars->map, 'E', vars->exit_coords);
 	get_map_size(vars->map, vars->map_size);
 	count_collectibles(vars);
 	vars->frame = 0;
 	vars->move_count = 0;
-	if (!ft_strncmp(name, "default", 8))
-		vars->level = 1;
-	else
-		vars->level = 0;
 	return (0);
 }
