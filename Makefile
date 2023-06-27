@@ -50,9 +50,9 @@ BONUS_SRC = src/main.c \
 		src/map_checkers/check_map_duplicate.c \
 		src/map_checkers/check_map_pathing.c \
 		src/map_checkers/check_map_rectangular.c \
-		src/map_checkers/check_invalid_characters.c \
 		src/bonus/so_long_bonus.c \
 		src/bonus/time_loop.c \
+		src/bonus/check_invalid_character_bonus.c \
 		src/draw/draw.c \
 		src/draw/get_images.c \
 		src/draw/draw_characters.c \
