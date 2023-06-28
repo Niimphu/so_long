@@ -46,6 +46,12 @@
 #define LEFT 2
 #define RIGHT 4
 
+typedef struct s_ent {
+	char			id;
+	int				coords[2];
+	struct s_ent	*next;
+}					t_ent;
+
 typedef struct s_vars {
 	void	*mlx;
 	void	*win;
@@ -55,6 +61,7 @@ typedef struct s_vars {
 	void	*exit_images[3];
 	void	*wall;
 	void	*background;
+	t_ent	*enemies;
 	int		frame;
 	char	**map;
 	char	*name;
@@ -70,6 +77,7 @@ int		open_map_file(char *name);
 char	**read_map(int fd, char *name);
 int		new_map(t_vars *vars);
 int		map_check(char *name);
+t_ent	*create_enemy_list(t_vars *vars);
 
 int		validate_map(char **map);
 int		check_map_rectangular(char **map);
@@ -91,17 +99,21 @@ int		so_long(t_vars *vars);
 
 int		is_player_move_valid(t_vars *vars, int direction, int coords[2]);
 int		is_enemy_in_target(t_vars *vars, int target[2]);
+int		is_enemy_move_valid(t_vars *vars, int i, int j);
+int		move_enemies(t_vars *vars);
 
 int		*locate_first(char **map, char c, int coords[2]);
 int		*get_map_size(char **map, int size[2]);
 int		move_input(t_vars *vars, int keycode);
 int		count_collectibles(t_vars *vars);
 
+void	free_list(t_ent *list);
 int		key_pressed(int keycode, t_vars *vars);
 int		window_closed(t_vars *vars);
 void	error_exit(int error_code);
 void	quit(t_vars *vars);
 
 void	print_map(char **map);
+void	print_list(t_ent *list);
 
 #endif

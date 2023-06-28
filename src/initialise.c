@@ -18,6 +18,7 @@ int	create_window(t_vars *vars);
 int	initialise(char *name, t_vars *vars)
 {
 	vars->name = name;
+	vars->enemies = NULL;
 	if (new_map(vars) != OK)
 		error_exit(FAIL);
 	vars->mlx = mlx_init();
@@ -32,6 +33,8 @@ int	new_map(t_vars *vars)
 
 	if (!vars->name)
 		vars->name = "default";
+	if (vars->map)
+		free_ppointer(vars->map);
 	fd = open_map_file(vars->name);
 	if (fd < 0)
 		return (FAIL);
@@ -50,6 +53,12 @@ int	set_vars(t_vars *vars)
 	count_collectibles(vars);
 	vars->frame = 0;
 	vars->move_count = 0;
+	if (vars->enemies)
+	{
+		free_list(vars->enemies);
+		vars->enemies = NULL;
+	}
+	vars->enemies = create_enemy_list(vars);
 	return (0);
 }
 

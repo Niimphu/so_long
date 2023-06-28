@@ -18,6 +18,7 @@ LDFLAGS =
 
 SRC = src/main.c \
 		src/initialise.c \
+		src/enemy_list.c \
 		src/ready_check.c \
 		src/map_functions/open_map.c \
 		src/map_functions/read_map.c \
@@ -34,7 +35,8 @@ SRC = src/main.c \
 		src/draw/draw_characters.c \
 		src/draw/draw_map.c \
 		src/input_handler.c \
-		src/movement.c \
+		src/player_movement.c \
+		src/enemy_movement.c \
 		src/move_checks.c \
 		src/error.c \
 		src/quit.c \
@@ -42,6 +44,7 @@ SRC = src/main.c \
 
 BONUS_SRC = src/main.c \
 		src/initialise.c \
+		src/enemy_list.c \
 		src/ready_check.c \
 		src/map_functions/open_map.c \
 		src/map_functions/read_map.c \
@@ -59,7 +62,8 @@ BONUS_SRC = src/main.c \
 		src/draw/draw_characters.c \
 		src/draw/draw_map.c \
 		src/input_handler.c \
-		src/movement.c \
+		src/player_movement.c \
+		src/enemy_movement.c \
 		src/move_checks.c \
 		src/error.c \
 		src/quit.c \

@@ -27,12 +27,16 @@ int	is_player_move_valid(t_vars *vars, int direction, int coords[2])
 	return (FALSE);
 }
 
+int	is_enemy_move_valid(t_vars *vars, int i, int j)
+{
+	if (ft_strchr("1EC", vars->map[i][j]))
+		return (FALSE);
+	return (TRUE);
+}
+
 int	is_enemy_in_target(t_vars *vars, int target[2])
 {
-	if (vars->map[target[Y]][target[X]] == 'H' ||
-	vars->map[target[Y]][target[X]] == 'h' ||
-	vars->map[target[Y]][target[X]] == 'V' ||
-	vars->map[target[Y]][target[X]] == 'v')
+	if (ft_strchr("HhVv", vars->map[target[Y]][target[X]]))
 		return (TRUE);
 	else
 		return (FALSE);
