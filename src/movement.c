@@ -12,12 +12,6 @@
 
 #include "../dep/so_long.h"
 
-#define UP 0
-#define DOWN 1
-#define LEFT 2
-#define RIGHT 4
-
-int	check_valid_move(t_vars *vars, int direction, int coords[2]);
 int	move_player(t_vars *vars, int coords[2], int target[2]);
 int	exit_reached(t_vars *vars);
 
@@ -29,38 +23,23 @@ int	move_input(t_vars *vars, int keycode)
 	int	target[2];
 
 	direction = -1;
-	if (keycode == XK_w)
+	if (keycode == XK_w || keycode == XK_Up)
 		direction = UP;
-	else if (keycode == XK_a)
+	else if (keycode == XK_a || keycode == XK_Left)
 		direction = LEFT;
-	else if (keycode == XK_s)
+	else if (keycode == XK_s || keycode == XK_Right)
 		direction = DOWN;
-	else if (keycode == XK_d)
+	else if (keycode == XK_d || keycode == XK_Down)
 		direction = RIGHT;
 	locate_first(vars->map, 'P', coords);
 	target[X] = coords[X];
 	target[Y] = coords[Y];
-	is_move_possible = check_valid_move(vars, direction, target);
+	is_move_possible = is_player_move_valid(vars, direction, target);
 	if (is_move_possible)
 		move_player(vars, coords, target);
 	else
 		return (0);
 	return (0);
-}
-
-int	check_valid_move(t_vars *vars, int direction, int coords[2])
-{
-	if (direction == UP)
-		coords[Y] -= 1;
-	else if (direction == DOWN)
-		coords[Y] += 1;
-	else if (direction == LEFT)
-		coords[X] -= 1;
-	else if (direction == RIGHT)
-		coords[X] += 1;
-	if (vars->map[coords[Y]][coords[X]] != '1')
-		return (TRUE);
-	return (FALSE);
 }
 
 int	move_player(t_vars *vars, int coords[2], int target[2])
@@ -69,8 +48,7 @@ int	move_player(t_vars *vars, int coords[2], int target[2])
 
 	if (vars->map[target[Y]][target[X]] == 'C')
 		vars->collectible_count -= 1;
-	else if (vars->map[target[Y]][target[X]] == 'H' ||
-		vars->map[target[Y]][target[X]] == 'V')
+	else if (is_enemy_in_target(vars, target))
 		return (new_map(vars));
 	if (coords[X] == vars->exit_coords[X] && coords[Y] == vars->exit_coords[Y])
 		vars->map[coords[Y]][coords[X]] = 'E';
