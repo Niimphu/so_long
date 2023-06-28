@@ -37,7 +37,7 @@ int	check_invalid_characters(char **map)
 
 int	is_character_valid(char c)
 {
-	const char	set[] = {'P', 'C', 'E', '1', '0', 'H', 'V', '\n', 0};
+	const char	set[] = {'P', 'C', 'E', '1', '0', 'H', 'h', 'V', 'v', '\n', 0};
 	int			i;
 
 	i = 0;
