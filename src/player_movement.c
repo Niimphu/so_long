@@ -27,9 +27,9 @@ int	move_input(t_vars *vars, int keycode)
 		direction = UP;
 	else if (keycode == XK_a || keycode == XK_Left)
 		direction = LEFT;
-	else if (keycode == XK_s || keycode == XK_Right)
+	else if (keycode == XK_s || keycode == XK_Down)
 		direction = DOWN;
-	else if (keycode == XK_d || keycode == XK_Down)
+	else if (keycode == XK_d || keycode == XK_Right)
 		direction = RIGHT;
 	locate_first(vars->map, 'P', coords);
 	target[X] = coords[X];

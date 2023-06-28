@@ -20,8 +20,10 @@ int	key_pressed(int keycode, t_vars *vars)
 		mlx_destroy_window(vars->mlx, vars->win);
 		quit(vars);
 	}
-	else if (keycode == XK_w || keycode == XK_a
-		|| keycode == XK_s || keycode == XK_d)
+	else if (keycode == XK_w || keycode == XK_a ||
+		keycode == XK_s || keycode == XK_d ||
+		keycode == XK_Up || keycode == XK_Right ||
+		keycode == XK_Left || keycode == XK_Down)
 		move_input(vars, keycode);
 	draw(vars);
 	update_move_counter(vars);
