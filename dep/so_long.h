@@ -96,6 +96,7 @@ int		update_move_counter(t_vars *vars);
 
 int		initialise(char *name, t_vars *vars);
 int		so_long(t_vars *vars);
+int 	restart_level(t_vars *vars);
 
 int		is_player_move_valid(t_vars *vars, int direction, int coords[2]);
 int		is_enemy_in_target(t_vars *vars, int target[2]);

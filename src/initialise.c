@@ -19,6 +19,7 @@ int	initialise(char *name, t_vars *vars)
 {
 	vars->name = name;
 	vars->enemies = NULL;
+	vars->move_count = 0;
 	if (new_map(vars) != OK)
 		error_exit(FAIL);
 	vars->mlx = mlx_init();
@@ -52,7 +53,6 @@ int	set_vars(t_vars *vars)
 	get_map_size(vars->map, vars->map_size);
 	count_collectibles(vars);
 	vars->frame = 0;
-	vars->move_count = 0;
 	if (vars->enemies)
 	{
 		free_list(vars->enemies);
@@ -79,5 +79,16 @@ int	create_window(t_vars *vars)
 	}
 	vars->win = mlx_new_window(vars->mlx, x, y,
 							   "Bubble Cat Loves Emeralds But Not Bombs.");
+	return (0);
+}
+
+int restart_level(t_vars *vars)
+{
+	int	move_count;
+
+	move_count = vars->move_count;
+	new_map(vars);
+	vars->move_count = move_count;
+	update_move_counter(vars);
 	return (0);
 }
