@@ -6,7 +6,7 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:54:16 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/25 14:05:23 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/28 23:58:07 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@
 # define X 1
 # define Y 0
 
-#define UP 0
-#define DOWN 1
-#define LEFT 2
-#define RIGHT 4
+# define UP 0
+# define DOWN 1
+# define LEFT 2
+# define RIGHT 4
 
 typedef struct s_ent {
 	char			id;
@@ -96,7 +96,7 @@ int		update_move_counter(t_vars *vars);
 
 int		initialise(char *name, t_vars *vars);
 int		so_long(t_vars *vars);
-int 	restart_level(t_vars *vars);
+int		restart_level(t_vars *vars);
 
 int		is_player_move_valid(t_vars *vars, int direction, int coords[2]);
 int		is_enemy_in_target(t_vars *vars, int target[2]);
