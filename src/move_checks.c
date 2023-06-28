@@ -29,7 +29,7 @@ int	is_player_move_valid(t_vars *vars, int direction, int coords[2])
 
 int	is_enemy_move_valid(t_vars *vars, int i, int j)
 {
-	if (ft_strchr("1EC", vars->map[i][j]))
+	if (ft_strchr("1ECHhVv", vars->map[i][j]))
 		return (FALSE);
 	return (TRUE);
 }

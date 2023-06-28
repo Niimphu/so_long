@@ -67,10 +67,20 @@ int	exit_reached(t_vars *vars)
 {
 	if (ft_strncmp(vars->name, "default", 7))
 		quit(vars);
+	else if (!ft_strncmp(vars->name, "default", 8))
+		vars->name = "default2";
+	else if (!ft_strncmp(vars->name, "default2", 8))
+		vars->name = "default3";
+	else if (!ft_strncmp(vars->name, "default3", 8))
+		vars->name = "default4";
+	else if (!ft_strncmp(vars->name, "default4", 8))
+		vars->name = "default5";
+	else if (!ft_strncmp(vars->name, "default5", 8))
+		vars->name = "default6";
+	else if (!ft_strncmp(vars->name, "default6", 8))
+		vars->name = "default7";
 	else
-	{
-		vars->name = "test";
-		new_map(vars);
-	}
+		quit(vars);
+	new_map(vars);
 	return (0);
 }

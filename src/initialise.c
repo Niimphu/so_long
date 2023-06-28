@@ -70,13 +70,14 @@ int	create_window(t_vars *vars)
 	if (!ft_strncmp(vars->name, "default", 7))
 	{
 		x = 30 * 64;
-		y = 15 * 64 + 18;
+		y = 10 * 64 + 18;
 	}
 	else
 	{
 		x = vars->map_size[X] * 64;
 		y = vars->map_size[Y] * 64 + 18;
 	}
-	vars->win = mlx_new_window(vars->mlx, x, y, "so_looooong");
+	vars->win = mlx_new_window(vars->mlx, x, y,
+							   "Bubble Cat Loves Emeralds But Not Bombs.");
 	return (0);
 }
