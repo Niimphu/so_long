@@ -16,8 +16,8 @@ void	update_frame(t_vars *vars);
 
 int	loop(t_vars *vars)
 {
-	clock_t					time_since_start;
-	static unsigned long	iterations;
+	clock_t		time_since_start;
+	static long	iterations;
 
 	if (!iterations)
 		iterations = 0;
