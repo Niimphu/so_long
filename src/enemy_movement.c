@@ -6,7 +6,7 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 14:40:04 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/28 22:56:38 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/28 23:56:13 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ int	move_enemy(t_vars *vars, t_ent *enemies)
 		target[Y] += 1;
 	else if (enemies->id == 'v')
 		target[Y] -= 1;
-	else
-		return (0);
 	if (vars->map[target[Y]][target[X]] == 'P')
 		return (new_map(vars));
 	if (is_enemy_move_valid(vars, target[Y], target[X]))

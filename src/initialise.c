@@ -6,7 +6,7 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 16:33:08 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/26 20:21:59 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/28 23:53:24 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,11 @@ int	create_window(t_vars *vars)
 		y = vars->map_size[Y] * 64 + 18;
 	}
 	vars->win = mlx_new_window(vars->mlx, x, y,
-							   "Bubble Cat Loves Emeralds But Not Bombs.");
+			"Bubble Cat Loves Emeralds But Not Bombs.");
 	return (0);
 }
 
-int restart_level(t_vars *vars)
+int	restart_level(t_vars *vars)
 {
 	int	move_count;
 

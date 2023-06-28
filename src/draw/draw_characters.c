@@ -6,7 +6,7 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 21:08:01 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/26 20:21:48 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/28 23:55:37 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	draw_enemy(t_vars *vars, int x, int y)
 {
 	x *= 64;
 	y *= 64;
-	mlx_put_image_to_window(vars->mlx, vars->win, vars->enemy_images[vars->frame], x, y);
+	mlx_put_image_to_window(vars->mlx, vars->win,
+		vars->enemy_images[vars->frame], x, y);
 	return (0);
 }

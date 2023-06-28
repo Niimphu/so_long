@@ -6,7 +6,7 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 17:54:03 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/26 20:22:02 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/28 23:55:17 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,9 @@ void	free_images(t_vars *vars)
 		i++;
 	}
 	i = 0;
-	while (vars->player_images[i])
+	while (i < 8)
 	{
 		mlx_destroy_image(vars->mlx, vars->player_images[i]);
-		i++;
-	}
-	i = 0;
-	while (vars->enemy_images[i])
-	{
 		mlx_destroy_image(vars->mlx, vars->enemy_images[i]);
 		i++;
 	}
@@ -61,5 +56,4 @@ void	free_images(t_vars *vars)
 	}
 	mlx_destroy_image(vars->mlx, vars->wall);
 	mlx_destroy_image(vars->mlx, vars->background);
-
 }
