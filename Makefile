@@ -35,6 +35,7 @@ SRC = src/main.c \
 		src/draw/draw_map.c \
 		src/input_handler.c \
 		src/movement.c \
+		src/move_checks.c \
 		src/error.c \
 		src/quit.c \
 		$(GNL)
@@ -59,6 +60,7 @@ BONUS_SRC = src/main.c \
 		src/draw/draw_map.c \
 		src/input_handler.c \
 		src/movement.c \
+		src/move_checks.c \
 		src/error.c \
 		src/quit.c \
 		$(GNL)

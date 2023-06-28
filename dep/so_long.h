@@ -41,6 +41,11 @@
 # define X 1
 # define Y 0
 
+#define UP 0
+#define DOWN 1
+#define LEFT 2
+#define RIGHT 4
+
 typedef struct s_vars {
 	void	*mlx;
 	void	*win;
@@ -83,6 +88,8 @@ int		update_move_counter(t_vars *vars);
 
 int		initialise(char *name, t_vars *vars);
 int		so_long(t_vars *vars);
+
+int	is_player_move_valid(t_vars *vars, int direction, int coords[2]);
 
 int		*locate_first(char **map, char c, int coords[2]);
 int		*get_map_size(char **map, int size[2]);
