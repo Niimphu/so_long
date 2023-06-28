@@ -6,7 +6,7 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 14:40:04 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/28 14:40:10 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/28 22:56:38 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@ int	flip_enemy(t_vars *vars, t_ent *enemies);
 
 int	move_enemies(t_vars *vars)
 {
-	t_ent	*enemies = vars->enemies;
+	t_ent	*enemies;
 
+	enemies = vars->enemies;
 	while (enemies)
 	{
 		move_enemy(vars, enemies);

@@ -6,7 +6,7 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 16:46:59 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/28 16:47:39 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/28 22:56:06 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	free_list(t_ent *list)
 
 t_ent	*add_enemy(t_vars *vars, int i, int j)
 {
-	t_ent *list;
+	t_ent	*list;
 
 	if (!vars->enemies)
 		return (new_enemy_node(vars, i, j));
@@ -85,7 +85,7 @@ void	print_list(t_ent *list)
 	while (list)
 	{
 		ft_printf("Enemy: %c Location: %i, %i.\n",
-				  list->id, list->coords[X], list->coords[Y]);
+			list->id, list->coords[X], list->coords[Y]);
 		list = list->next;
 	}
 	ft_printf("---------------\n\n");

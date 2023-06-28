@@ -51,12 +51,12 @@ int	draw_wall(t_vars *vars, int x, int y)
 	return (0);
 }
 
-
 int	draw_collectible(t_vars *vars, int x, int y)
 {
 	x *= 64;
 	y *= 64;
-	mlx_put_image_to_window(vars->mlx, vars->win, vars->collectible_images[vars->frame % 4], x, y);
+	mlx_put_image_to_window(vars->mlx, vars->win,
+		vars->collectible_images[vars->frame % 4], x, y);
 	return (0);
 }
 
@@ -64,10 +64,11 @@ int	draw_exit(t_vars *vars, int x, int y)
 {
 	x *= 64;
 	y *= 64;
-
 	if (!vars->collectible_count)
-		mlx_put_image_to_window(vars->mlx, vars->win, vars->exit_images[1], x, y);
+		mlx_put_image_to_window(vars->mlx, vars->win,
+			vars->exit_images[1], x, y);
 	else
-		mlx_put_image_to_window(vars->mlx, vars->win, vars->exit_images[0], x, y);
+		mlx_put_image_to_window(vars->mlx, vars->win,
+			vars->exit_images[0], x, y);
 	return (0);
 }
