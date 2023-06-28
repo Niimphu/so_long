@@ -33,7 +33,8 @@ int	draw_entities(t_vars *vars)
 				draw_exit(vars, j, i);
 			else if (vars->map[i][j] == '1')
 				draw_wall(vars, j, i);
-			else if (vars->map[i][j] == 'H' || vars->map[i][j] == 'V')
+			else if (vars->map[i][j] == 'H' || vars->map[i][j] == 'h' ||
+					vars->map[i][j] == 'V' || vars->map[i][j] == 'v')
 				draw_enemy(vars, j, i);
 			j++;
 		}
