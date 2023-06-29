@@ -28,6 +28,14 @@
 #define ENEMY6 "sprites/Enemy/Enemy3.xpm"
 #define ENEMY7 "sprites/Enemy/Enemy.xpm"
 #define ENEMY8 "sprites/Enemy/Enemy2.xpm"
+#define EXPLOSION "sprites/Explosion/Explosion.xpm"
+#define EXPLOSION2 "sprites/Explosion/Explosion2.xpm"
+#define EXPLOSION3 "sprites/Explosion/Explosion3.xpm"
+#define EXPLOSION4 "sprites/Explosion/Explosion4.xpm"
+#define EXPLOSION5 "sprites/Explosion/Explosion5.xpm"
+#define EXPLOSION6 "sprites/Explosion/Explosion6.xpm"
+#define EXPLOSION7 "sprites/Explosion/Explosion7.xpm"
+#define EXPLOSION8 "sprites/Explosion/Explosion8.xpm"
 #define COLLECTIBLE "sprites/Collectible/Collectible.xpm"
 #define COLLECTIBLE2 "sprites/Collectible/Collectible2.xpm"
 #define COLLECTIBLE3 "sprites/Collectible/Collectible3.xpm"
@@ -40,6 +48,7 @@
 void	*get_image(t_vars *vars, char *path_to_file, int x, int y);
 void	*load_player_images(t_vars *vars, int length);
 void	*load_enemy_images(t_vars *vars, int length);
+void	*load_explosion_images(t_vars *vars, int length);
 
 int	get_images_from_textures(t_vars *vars)
 {
@@ -52,6 +61,7 @@ int	get_images_from_textures(t_vars *vars)
 	map_y = vars->map_size[Y] * 64 + 18;
 	load_player_images(vars, length);
 	load_enemy_images(vars, length);
+	load_explosion_images(vars, length);
 	vars->exit_images[0] = get_image(vars, EXIT, length, length);
 	vars->exit_images[1] = get_image(vars, EXIT2, length, length);
 	vars->exit_images[2] = NULL;
@@ -95,5 +105,19 @@ void	*load_enemy_images(t_vars *vars, int length)
 	vars->enemy_images[6] = get_image(vars, ENEMY7, length, length);
 	vars->enemy_images[7] = get_image(vars, ENEMY8, length, length);
 	vars->enemy_images[8] = NULL;
+	return (NULL);
+}
+
+void	*load_explosion_images(t_vars *vars, int length)
+{
+	vars->explosion_images[0] = get_image(vars, EXPLOSION, length, length);
+	vars->explosion_images[1] = get_image(vars, EXPLOSION2, length, length);
+	vars->explosion_images[2] = get_image(vars, EXPLOSION3, length, length);
+	vars->explosion_images[3] = get_image(vars, EXPLOSION4, length, length);
+	vars->explosion_images[4] = get_image(vars, EXPLOSION5, length, length);
+	vars->explosion_images[5] = get_image(vars, EXPLOSION6, length, length);
+	vars->explosion_images[6] = get_image(vars, EXPLOSION7, length, length);
+	vars->explosion_images[7] = get_image(vars, EXPLOSION8, length, length);
+	vars->explosion_images[8] = NULL;
 	return (NULL);
 }

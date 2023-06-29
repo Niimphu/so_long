@@ -46,6 +46,7 @@ void	free_images(t_vars *vars)
 	{
 		mlx_destroy_image(vars->mlx, vars->player_images[i]);
 		mlx_destroy_image(vars->mlx, vars->enemy_images[i]);
+		mlx_destroy_image(vars->mlx, vars->explosion_images[i]);
 		i++;
 	}
 	i = 0;
