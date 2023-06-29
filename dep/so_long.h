@@ -57,6 +57,7 @@ typedef struct s_vars {
 	void	*win;
 	void	*player_images[9];
 	void	*enemy_images[9];
+	void	*explosion_images[9];
 	void	*collectible_images[5];
 	void	*exit_images[3];
 	void	*wall;

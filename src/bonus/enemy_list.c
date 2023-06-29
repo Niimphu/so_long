@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../dep/so_long.h"
+#include "../../dep/so_long.h"
 
 t_ent	*add_enemy(t_vars *vars, int i, int j);
 t_ent	*new_enemy_node(t_vars *vars, int i, int j);

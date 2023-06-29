@@ -18,7 +18,6 @@ LDFLAGS =
 
 SRC = src/main.c \
 		src/initialise.c \
-		src/enemy_list.c \
 		src/ready_check.c \
 		src/map_functions/open_map.c \
 		src/map_functions/read_map.c \
@@ -30,13 +29,14 @@ SRC = src/main.c \
 		src/map_checkers/check_map_rectangular.c \
 		src/map_checkers/check_invalid_characters.c \
 		src/so_long.c \
+		src/bonus/enemy_list.c \
+		src/bonus/enemy_movement.c \
 		src/draw/draw.c \
 		src/draw/get_images.c \
 		src/draw/draw_characters.c \
 		src/draw/draw_map.c \
 		src/input_handler.c \
 		src/player_movement.c \
-		src/enemy_movement.c \
 		src/move_checks.c \
 		src/error.c \
 		src/quit.c \
@@ -44,7 +44,6 @@ SRC = src/main.c \
 
 BONUS_SRC = src/main.c \
 		src/initialise.c \
-		src/enemy_list.c \
 		src/ready_check.c \
 		src/map_functions/open_map.c \
 		src/map_functions/read_map.c \
@@ -57,13 +56,14 @@ BONUS_SRC = src/main.c \
 		src/bonus/so_long_bonus.c \
 		src/bonus/time_loop.c \
 		src/bonus/check_invalid_character_bonus.c \
+		src/bonus/enemy_movement.c \
+		src/bonus/enemy_list.c \
 		src/draw/draw.c \
 		src/draw/get_images.c \
 		src/draw/draw_characters.c \
 		src/draw/draw_map.c \
 		src/input_handler.c \
 		src/player_movement.c \
-		src/enemy_movement.c \
 		src/move_checks.c \
 		src/error.c \
 		src/quit.c \

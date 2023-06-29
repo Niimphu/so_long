@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../dep/so_long.h"
+#include "../../dep/so_long.h"
 
 int	move_enemy(t_vars *vars, t_ent *enemies);
 int	flip_enemy(t_vars *vars, t_ent *enemies);
