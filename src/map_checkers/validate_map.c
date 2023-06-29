@@ -16,7 +16,7 @@ int	validate_map(char **map)
 {
 	if (check_map_rectangular(map))
 		return (NON_RECT);
-	if (check_map_duplicate_entities(map))
+	if (check_entity_count(map))
 		return (DUP_ENTITIES);
 	if (check_map_border(map))
 		return (BAD_BORDER);

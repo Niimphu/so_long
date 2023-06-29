@@ -12,7 +12,7 @@
 
 #include "../../dep/so_long.h"
 
-int	check_map_duplicate_entities(char **map)
+int	check_entity_count(char **map)
 {
 	int	player_count;
 	int	exit_count;
@@ -34,7 +34,9 @@ int	check_map_duplicate_entities(char **map)
 		}
 		i++;
 	}
-	if (player_count != 1 || exit_count != 1)
+	if (player_count > 1 || exit_count > 1)
 		return (DUP_ENTITIES);
+	if (player_count < 1 || exit_count < 1)
+		return (NOT_ENOUGH_ENTITIES);
 	return (OK);
 }

@@ -41,6 +41,8 @@ char	*get_error_message(int error_code)
 		return ("Map is not rectangular.\n");
 	if (error_code == DUP_ENTITIES)
 		return ("Duplicate player or exits found.\n");
+	if (error_code == NOT_ENOUGH_ENTITIES)
+		return ("Map needs one Player and one Exit.\n");
 	if (error_code == BAD_BORDER)
 		return ("Map is not fully enclosed by walls.\n");
 	if (error_code == NO_PATH)

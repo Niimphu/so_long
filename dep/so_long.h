@@ -34,9 +34,10 @@
 # define BAD_MAP 13
 # define NON_RECT 14
 # define DUP_ENTITIES 15
-# define BAD_BORDER 16
-# define NO_PATH 17
-# define INVALID_CHAR 18
+# define NOT_ENOUGH_ENTITIES 16
+# define BAD_BORDER 17
+# define NO_PATH 18
+# define INVALID_CHAR 19
 
 # define X 1
 # define Y 0
@@ -82,7 +83,7 @@ t_ent	*create_enemy_list(t_vars *vars);
 
 int		validate_map(char **map);
 int		check_map_rectangular(char **map);
-int		check_map_duplicate_entities(char **map);
+int		check_entity_count(char **map);
 int		check_map_border(char **map);
 int		check_map_pathing(char **map);
 int		check_invalid_characters(char **map);
