@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../dep/so_long_bonus.h"
+#include "../../dep/so_long.h"
+#include <time.h>
 
 void	update_frame(t_vars *vars);
 
@@ -36,4 +37,20 @@ void	update_frame(t_vars *vars)
 	if (vars->frame > 7)
 		vars->frame = 0;
 	draw(vars);
+}
+
+void	boom(t_vars *vars)
+{
+	int	i;
+
+	i = 0;
+	while (i < 5)
+	{
+		update_frame(vars);
+		draw(vars);
+		usleep(100000);
+		i++;
+	}
+	new_map(vars);
+	return ;
 }

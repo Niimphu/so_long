@@ -14,6 +14,7 @@
 
 int	move_player(t_vars *vars, int coords[2], int target[2]);
 int	exit_reached(t_vars *vars);
+int	player_walked_into_enemy(t_vars *vars, int coords[2], int target[2]);
 
 int	move_input(t_vars *vars, int keycode)
 {
@@ -22,6 +23,8 @@ int	move_input(t_vars *vars, int keycode)
 	int	coords[2];
 	int	target[2];
 
+	if (!locate_first(vars->map, 'P', coords))
+		return (1);
 	direction = -1;
 	if (keycode == XK_w || keycode == XK_Up)
 		direction = UP;
@@ -31,7 +34,6 @@ int	move_input(t_vars *vars, int keycode)
 		direction = DOWN;
 	else if (keycode == XK_d || keycode == XK_Right)
 		direction = RIGHT;
-	locate_first(vars->map, 'P', coords);
 	target[X] = coords[X];
 	target[Y] = coords[Y];
 	is_move_possible = is_player_move_valid(vars, direction, target);
@@ -49,7 +51,7 @@ int	move_player(t_vars *vars, int coords[2], int target[2])
 	if (vars->map[target[Y]][target[X]] == 'C')
 		vars->collectible_count -= 1;
 	else if (is_enemy_in_target(vars, target))
-		return (new_map(vars));
+		return (player_walked_into_enemy(vars, coords, target));
 	if (coords[X] == vars->exit_coords[X] && coords[Y] == vars->exit_coords[Y])
 		vars->map[coords[Y]][coords[X]] = 'E';
 	else
@@ -82,5 +84,13 @@ int	exit_reached(t_vars *vars)
 	else
 		quit(vars);
 	new_map(vars);
+	return (0);
+}
+
+int	player_walked_into_enemy(t_vars *vars, int coords[2], int target[2])
+{
+	vars->map[target[Y]][target[X]] = 'B';
+	vars->map[coords[Y]][coords[X]] = '0';
+	boom(vars);
 	return (0);
 }

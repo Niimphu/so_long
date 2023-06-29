@@ -15,6 +15,7 @@
 int	draw_collectible(t_vars *vars, int x, int y);
 int	draw_exit(t_vars *vars, int x, int y);
 int	draw_wall(t_vars *vars, int x, int y);
+int	draw_boom(t_vars *vars, int x, int y);
 
 int	draw_entities(t_vars *vars)
 {
@@ -36,6 +37,8 @@ int	draw_entities(t_vars *vars)
 			else if (vars->map[i][j] == 'H' || vars->map[i][j] == 'h' ||
 					vars->map[i][j] == 'V' || vars->map[i][j] == 'v')
 				draw_enemy(vars, j, i);
+			else if (vars->map[i][j] == 'B')
+				draw_boom(vars, j, i);
 			j++;
 		}
 		i++;
@@ -57,6 +60,15 @@ int	draw_collectible(t_vars *vars, int x, int y)
 	y *= 64;
 	mlx_put_image_to_window(vars->mlx, vars->win,
 		vars->collectible_images[vars->frame % 4], x, y);
+	return (0);
+}
+
+int	draw_boom(t_vars *vars, int x, int y)
+{
+	x *= 64;
+	y *= 64;
+	mlx_put_image_to_window(vars->mlx, vars->win,
+							vars->explosion_images[vars->frame], x, y);
 	return (0);
 }
 

@@ -14,6 +14,7 @@
 
 int	move_enemy(t_vars *vars, t_ent *enemies);
 int	flip_enemy(t_vars *vars, t_ent *enemies);
+int	enemy_walked_into_player(t_vars *vars, t_ent *enemies, int target[2]);
 
 int	move_enemies(t_vars *vars)
 {
@@ -43,7 +44,7 @@ int	move_enemy(t_vars *vars, t_ent *enemies)
 	else if (enemies->id == 'v')
 		target[Y] -= 1;
 	if (vars->map[target[Y]][target[X]] == 'P')
-		return (new_map(vars));
+		return (enemy_walked_into_player(vars, enemies, target));
 	if (is_enemy_move_valid(vars, target[Y], target[X]))
 	{
 		vars->map[target[Y]][target[X]] = enemies->id;
@@ -67,5 +68,13 @@ int	flip_enemy(t_vars *vars, t_ent *enemies)
 	else if (enemies->id == 'v')
 		enemies->id = 'V';
 	move_enemy(vars, enemies);
+	return (0);
+}
+
+int	enemy_walked_into_player(t_vars *vars, t_ent *enemies, int target[2])
+{
+	vars->map[target[Y]][target[X]] = 'B';
+	vars->map[enemies->coords[Y]][enemies->coords[X]] = '0';
+	boom(vars);
 	return (0);
 }

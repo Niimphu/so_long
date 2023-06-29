@@ -17,6 +17,8 @@ int	draw_player(t_vars *vars)
 	int	coords[2];
 
 	locate_first(vars->map, 'P', coords);
+	if (!coords[X] || !coords[Y])
+		return (1);
 	mlx_put_image_to_window(vars->mlx, vars->win,
 		vars->player_images[vars->frame], coords[X] * 64, coords[Y] * 64);
 	return (0);
