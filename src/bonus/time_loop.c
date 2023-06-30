@@ -48,7 +48,7 @@ void	boom(t_vars *vars)
 	{
 		update_frame(vars);
 		draw(vars);
-		usleep(100000);
+		usleep(150000);
 		i++;
 	}
 	new_map(vars);
