@@ -68,7 +68,7 @@ int	draw_boom(t_vars *vars, int x, int y)
 	x *= 64;
 	y *= 64;
 	mlx_put_image_to_window(vars->mlx, vars->win,
-							vars->explosion_images[vars->frame], x, y);
+		vars->explosion_images[vars->frame], x, y);
 	return (0);
 }
 

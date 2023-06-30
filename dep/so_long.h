@@ -6,7 +6,7 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:54:16 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/28 23:58:07 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/06/30 15:33:07 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,6 @@ int		is_enemy_in_target(t_vars *vars, int target[2]);
 int		is_enemy_move_valid(t_vars *vars, int i, int j);
 int		move_enemies(t_vars *vars);
 void	boom(t_vars *vars);
-
 
 int		*locate_first(char **map, char c, int coords[2]);
 int		*get_map_size(char **map, int size[2]);
