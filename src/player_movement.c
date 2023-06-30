@@ -83,6 +83,8 @@ int	exit_reached(t_vars *vars)
 		vars->name = "default7";
 	else if (!ft_strncmp(vars->name, "default7", 8))
 		vars->name = "default8";
+	else if (!ft_strncmp(vars->name, "default8", 8))
+		vars->name = "default9";
 	else
 		quit(vars);
 	new_map(vars);
