@@ -16,6 +16,7 @@ int	so_long(t_vars *vars)
 {
 	mlx_hook(vars->win, KeyPress, 1L << 0, key_pressed, vars);
 	mlx_hook(vars->win, DestroyNotify, 0L, window_closed, vars);
+	mlx_expose_hook(vars->win, draw, vars);
 	draw(vars);
 	mlx_loop(vars->mlx);
 	return (0);
