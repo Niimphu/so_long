@@ -107,6 +107,12 @@ int		is_enemy_move_valid(t_vars *vars, int i, int j);
 int		move_enemies(t_vars *vars);
 void	boom(t_vars *vars);
 
+int		move_enemy(t_vars *vars, t_ent *enemies, int target[2]);
+int		check_and_move_enemy(t_vars *vars, t_ent *enemies);
+int		flip_enemy(t_ent *enemies);
+int		enemy_walked_into_player(t_vars *vars, t_ent *enemies, int target[2]);
+int		get_enemy_target(t_ent *enemies, int target[2]);
+
 int		*locate_first(char **map, char c, int coords[2]);
 int		*get_map_size(char **map, int size[2]);
 int		move_input(t_vars *vars, int keycode);

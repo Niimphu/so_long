@@ -31,6 +31,7 @@ SRC = src/main.c \
 		src/so_long.c \
 		src/bonus/enemy_list.c \
 		src/bonus/enemy_movement.c \
+		src/bonus/enemy_logic.c \
 		src/bonus/time_loop.c \
 		src/draw/draw.c \
 		src/draw/get_images.c \
@@ -59,6 +60,7 @@ BONUS_SRC = src/main.c \
 		src/bonus/check_invalid_character_bonus.c \
 		src/bonus/enemy_movement.c \
 		src/bonus/enemy_list.c \
+		src/bonus/enemy_logic.c \
 		src/draw/draw.c \
 		src/draw/get_images.c \
 		src/draw/draw_characters.c \
@@ -151,7 +153,7 @@ clean:
 	@echo -e "$(GREEN)Cleaning done!$(END)"
 
 fclean: clean
-	@rm -f $(NAME)
+	@rm -f $(NAME) $(BONUS)
 
 re: fclean all
 
