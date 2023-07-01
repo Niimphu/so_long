@@ -26,7 +26,6 @@ int	move_enemies(t_vars *vars)
 	return (0);
 }
 
-
 int	move_enemy(t_vars *vars, t_ent *enemies, int target[2])
 {
 	vars->map[target[Y]][target[X]] = enemies->id;
