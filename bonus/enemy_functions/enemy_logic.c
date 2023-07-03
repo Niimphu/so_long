@@ -6,13 +6,13 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 15:26:03 by yiwong            #+#    #+#             */
-/*   Updated: 2023/07/01 15:26:03 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/07/03 15:42:47 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../dep/so_long.h"
+#include "../../dep/so_long_bonus.h"
 
-int	check_and_move_enemy(t_vars *vars, t_ent *enemies)
+int	check_and_move_enemy(t_bvars *vars, t_ent *enemies)
 {
 	int	target[2];
 

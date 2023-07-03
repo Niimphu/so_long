@@ -6,16 +6,16 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 16:46:59 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/28 22:56:06 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/07/03 15:42:47 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../dep/so_long.h"
+#include "../../dep/so_long_bonus.h"
 
-t_ent	*add_enemy(t_vars *vars, int i, int j);
-t_ent	*new_enemy_node(t_vars *vars, int i, int j);
+t_ent	*add_enemy(t_bvars *vars, int i, int j);
+t_ent	*new_enemy_node(t_bvars *vars, int i, int j);
 
-t_ent	*create_enemy_list(t_vars *vars)
+t_ent	*create_enemy_list(t_bvars *vars)
 {
 	int	i;
 	int	j;
@@ -50,7 +50,7 @@ void	free_list(t_ent *list)
 	}
 }
 
-t_ent	*add_enemy(t_vars *vars, int i, int j)
+t_ent	*add_enemy(t_bvars *vars, int i, int j)
 {
 	t_ent	*list;
 
@@ -63,7 +63,7 @@ t_ent	*add_enemy(t_vars *vars, int i, int j)
 	return (vars->enemies);
 }
 
-t_ent	*new_enemy_node(t_vars *vars, int i, int j)
+t_ent	*new_enemy_node(t_bvars *vars, int i, int j)
 {
 	t_ent	*node;
 

@@ -1,28 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move_checks.c                                      :+:      :+:    :+:   */
+/*   check_map_border.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/28 14:02:34 by yiwong            #+#    #+#             */
-/*   Updated: 2023/07/03 15:27:44 by yiwong           ###   ########.fr       */
+/*   Created: 2023/06/24 17:32:40 by yiwong            #+#    #+#             */
+/*   Updated: 2023/07/03 15:42:57 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../dep/so_long.h"
+#include "../../dep/so_long_bonus.h"
 
-int	is_player_move_valid(t_vars *vars, int direction, int coords[2])
+int	check_map_border(char **map)
 {
-	if (direction == UP)
-		coords[Y] -= 1;
-	else if (direction == DOWN)
-		coords[Y] += 1;
-	else if (direction == LEFT)
-		coords[X] -= 1;
-	else if (direction == RIGHT)
-		coords[X] += 1;
-	if (vars->map[coords[Y]][coords[X]] != '1')
-		return (TRUE);
-	return (FALSE);
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (map[0][j + 1])
+		j++;
+	while (map[i])
+	{
+		if (map[i][0] != '1' || map[i][j] != '1')
+			return (BAD_BORDER);
+		i++;
+	}
+	i--;
+	j = 0;
+	while (map[0][j] && map[i][j])
+	{
+		if (map[0][j] != '1' || map[i][j] != '1')
+			return (BAD_BORDER);
+		j++;
+	}
+	return (OK);
 }

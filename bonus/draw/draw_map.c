@@ -10,13 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../dep/so_long.h"
+#include "../../dep/so_long_bonus.h"
 
-int	draw_collectible(t_vars *vars, int x, int y);
-int	draw_exit(t_vars *vars, int x, int y);
-int	draw_wall(t_vars *vars, int x, int y);
+int	draw_collectible(t_bvars *vars, int x, int y);
+int	draw_exit(t_bvars *vars, int x, int y);
+int	draw_wall(t_bvars *vars, int x, int y);
+int	draw_boom(t_bvars *vars, int x, int y);
 
-int	draw_entities(t_vars *vars)
+int	draw_entities(t_bvars *vars)
 {
 	int	i;
 	int	j;
@@ -33,6 +34,11 @@ int	draw_entities(t_vars *vars)
 				draw_exit(vars, j, i);
 			else if (vars->map[i][j] == '1')
 				draw_wall(vars, j, i);
+			else if (vars->map[i][j] == 'H' || vars->map[i][j] == 'h' ||
+					vars->map[i][j] == 'V' || vars->map[i][j] == 'v')
+				draw_enemy(vars, j, i);
+			else if (vars->map[i][j] == 'B')
+				draw_boom(vars, j, i);
 			j++;
 		}
 		i++;
@@ -40,7 +46,7 @@ int	draw_entities(t_vars *vars)
 	return (0);
 }
 
-int	draw_wall(t_vars *vars, int x, int y)
+int	draw_wall(t_bvars *vars, int x, int y)
 {
 	x *= 64;
 	y *= 64;
@@ -48,7 +54,7 @@ int	draw_wall(t_vars *vars, int x, int y)
 	return (0);
 }
 
-int	draw_collectible(t_vars *vars, int x, int y)
+int	draw_collectible(t_bvars *vars, int x, int y)
 {
 	x *= 64;
 	y *= 64;
@@ -57,7 +63,16 @@ int	draw_collectible(t_vars *vars, int x, int y)
 	return (0);
 }
 
-int	draw_exit(t_vars *vars, int x, int y)
+int	draw_boom(t_bvars *vars, int x, int y)
+{
+	x *= 64;
+	y *= 64;
+	mlx_put_image_to_window(vars->mlx, vars->win,
+		vars->explosion_images[vars->frame], x, y);
+	return (0);
+}
+
+int	draw_exit(t_bvars *vars, int x, int y)
 {
 	x *= 64;
 	y *= 64;

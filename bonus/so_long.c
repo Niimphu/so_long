@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move_checks.c                                      :+:      :+:    :+:   */
+/*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/28 14:02:34 by yiwong            #+#    #+#             */
-/*   Updated: 2023/07/03 15:27:44 by yiwong           ###   ########.fr       */
+/*   Created: 2023/06/25 14:22:17 by yiwong            #+#    #+#             */
+/*   Updated: 2023/07/03 15:42:08 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../dep/so_long.h"
+#include "../dep/so_long_bonus.h"
 
-int	is_player_move_valid(t_vars *vars, int direction, int coords[2])
+int	so_long(t_bvars *vars)
 {
-	if (direction == UP)
-		coords[Y] -= 1;
-	else if (direction == DOWN)
-		coords[Y] += 1;
-	else if (direction == LEFT)
-		coords[X] -= 1;
-	else if (direction == RIGHT)
-		coords[X] += 1;
-	if (vars->map[coords[Y]][coords[X]] != '1')
-		return (TRUE);
-	return (FALSE);
+	mlx_loop_hook(vars->mlx, loop, vars);
+	mlx_hook(vars->win, KeyPress, 1L << 0, key_pressed, vars);
+	mlx_hook(vars->win, DestroyNotify, 0L, window_closed, vars);
+	update_move_counter(vars);
+	mlx_loop(vars->mlx);
+	return (0);
 }

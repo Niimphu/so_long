@@ -6,7 +6,7 @@
 #    By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 15:44:30 by yiwong            #+#    #+#              #
-#    Updated: 2023/06/16 18:45:03 by yiwong           ###   ########.fr        #
+#    Updated: 2023/07/03 15:41:45 by yiwong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,10 +29,6 @@ SRC = src/main.c \
 		src/map_checkers/check_map_rectangular.c \
 		src/map_checkers/check_invalid_characters.c \
 		src/so_long.c \
-		src/bonus/enemy_list.c \
-		src/bonus/enemy_movement.c \
-		src/bonus/enemy_logic.c \
-		src/bonus/time_loop.c \
 		src/draw/draw.c \
 		src/draw/get_images.c \
 		src/draw/draw_characters.c \
@@ -44,32 +40,32 @@ SRC = src/main.c \
 		src/quit.c \
 		$(GNL)
 
-BONUS_SRC = src/main.c \
-		src/initialise.c \
-		src/ready_check.c \
-		src/map_functions/open_map.c \
-		src/map_functions/read_map.c \
-		src/map_functions/map_utils.c \
-		src/map_checkers/validate_map.c \
-		src/map_checkers/check_map_border.c \
-		src/map_checkers/check_map_duplicate.c \
-		src/map_checkers/check_map_pathing.c \
-		src/map_checkers/check_map_rectangular.c \
-		src/bonus/so_long_bonus.c \
-		src/bonus/time_loop.c \
-		src/bonus/check_invalid_character_bonus.c \
-		src/bonus/enemy_movement.c \
-		src/bonus/enemy_list.c \
-		src/bonus/enemy_logic.c \
-		src/draw/draw.c \
-		src/draw/get_images.c \
-		src/draw/draw_characters.c \
-		src/draw/draw_map.c \
-		src/input_handler.c \
-		src/player_movement.c \
-		src/move_checks.c \
-		src/error.c \
-		src/quit.c \
+BONUS_SRC = bonus/main.c \
+		bonus/initialise.c \
+		bonus/ready_check.c \
+		bonus/map_functions/open_map.c \
+		bonus/map_functions/read_map.c \
+		bonus/map_functions/map_utils.c \
+		bonus/map_checkers/validate_map.c \
+		bonus/map_checkers/check_map_border.c \
+		bonus/map_checkers/check_map_duplicate.c \
+		bonus/map_checkers/check_map_pathing.c \
+		bonus/map_checkers/check_map_rectangular.c \
+		bonus/map_checkers/check_invalid_characters.c \
+		bonus/so_long.c \
+		bonus/time_loop.c \
+		bonus/enemy_functions/enemy_movement.c \
+		bonus/enemy_functions/enemy_list.c \
+		bonus/enemy_functions/enemy_logic.c \
+		bonus/draw/draw.c \
+		bonus/draw/get_images.c \
+		bonus/draw/draw_characters.c \
+		bonus/draw/draw_map.c \
+		bonus/input_handler.c \
+		bonus/player_movement.c \
+		bonus/move_checks.c \
+		bonus/error.c \
+		bonus/quit.c \
 		$(GNL)
 
 GNL = dep/lib/get_next_line/get_next_line.c \

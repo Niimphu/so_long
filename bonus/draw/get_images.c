@@ -6,11 +6,11 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 20:46:05 by yiwong            #+#    #+#             */
-/*   Updated: 2023/07/03 15:27:04 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/07/03 15:42:40 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../dep/so_long.h"
+#include "../../dep/so_long_bonus.h"
 
 #define PLAYER "sprites/Player/Player4.xpm"
 #define PLAYER2 "sprites/Player/Player3.xpm"
@@ -45,10 +45,12 @@
 #define WALL "sprites/Wall.xpm"
 #define BACKGROUND "sprites/BG.xpm"
 
-void	*get_image(t_vars *vars, char *path_to_file, int x, int y);
-void	*load_player_images(t_vars *vars, int length);
+void	*get_image(t_bvars *vars, char *path_to_file, int x, int y);
+void	*load_player_images(t_bvars *vars, int length);
+void	*load_enemy_images(t_bvars *vars, int length);
+void	*load_explosion_images(t_bvars *vars, int length);
 
-int	get_images_from_textures(t_vars *vars)
+int	get_images_from_textures(t_bvars *vars)
 {
 	int	length;
 	int	map_x;
@@ -58,6 +60,8 @@ int	get_images_from_textures(t_vars *vars)
 	map_x = vars->map_size[X] * 64;
 	map_y = vars->map_size[Y] * 64 + 18;
 	load_player_images(vars, length);
+	load_enemy_images(vars, length);
+	load_explosion_images(vars, length);
 	vars->exit_images[0] = get_image(vars, EXIT, length, length);
 	vars->exit_images[1] = get_image(vars, EXIT2, length, length);
 	vars->exit_images[2] = NULL;
@@ -71,12 +75,12 @@ int	get_images_from_textures(t_vars *vars)
 	return (0);
 }
 
-void	*get_image(t_vars *vars, char *path_to_file, int x, int y)
+void	*get_image(t_bvars *vars, char *path_to_file, int x, int y)
 {
 	return (mlx_xpm_file_to_image(vars->mlx, path_to_file, &x, &y));
 }
 
-void	*load_player_images(t_vars *vars, int length)
+void	*load_player_images(t_bvars *vars, int length)
 {
 	vars->player_images[0] = get_image(vars, PLAYER, length, length);
 	vars->player_images[1] = get_image(vars, PLAYER2, length, length);
@@ -87,5 +91,33 @@ void	*load_player_images(t_vars *vars, int length)
 	vars->player_images[6] = get_image(vars, PLAYER7, length, length);
 	vars->player_images[7] = get_image(vars, PLAYER8, length, length);
 	vars->player_images[8] = NULL;
+	return (NULL);
+}
+
+void	*load_enemy_images(t_bvars *vars, int length)
+{
+	vars->enemy_images[0] = get_image(vars, ENEMY, length, length);
+	vars->enemy_images[1] = get_image(vars, ENEMY2, length, length);
+	vars->enemy_images[2] = get_image(vars, ENEMY3, length, length);
+	vars->enemy_images[3] = get_image(vars, ENEMY4, length, length);
+	vars->enemy_images[4] = get_image(vars, ENEMY5, length, length);
+	vars->enemy_images[5] = get_image(vars, ENEMY6, length, length);
+	vars->enemy_images[6] = get_image(vars, ENEMY7, length, length);
+	vars->enemy_images[7] = get_image(vars, ENEMY8, length, length);
+	vars->enemy_images[8] = NULL;
+	return (NULL);
+}
+
+void	*load_explosion_images(t_bvars *vars, int length)
+{
+	vars->explosion_images[0] = get_image(vars, EXPLOSION, length, length);
+	vars->explosion_images[1] = get_image(vars, EXPLOSION2, length, length);
+	vars->explosion_images[2] = get_image(vars, EXPLOSION3, length, length);
+	vars->explosion_images[3] = get_image(vars, EXPLOSION4, length, length);
+	vars->explosion_images[4] = get_image(vars, EXPLOSION5, length, length);
+	vars->explosion_images[5] = get_image(vars, EXPLOSION6, length, length);
+	vars->explosion_images[6] = get_image(vars, EXPLOSION7, length, length);
+	vars->explosion_images[7] = get_image(vars, EXPLOSION8, length, length);
+	vars->explosion_images[8] = NULL;
 	return (NULL);
 }

@@ -6,16 +6,16 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 14:21:36 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/25 14:21:36 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/07/03 15:42:18 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../dep/so_long.h"
+#include "../dep/so_long_bonus.h"
 #include <time.h>
 
-void	update_frame(t_vars *vars);
+void	update_frame(t_bvars *vars);
 
-int	loop(t_vars *vars)
+int	loop(t_bvars *vars)
 {
 	clock_t					time_since_start;
 	static unsigned long	iterations;
@@ -31,7 +31,7 @@ int	loop(t_vars *vars)
 	return (0);
 }
 
-void	update_frame(t_vars *vars)
+void	update_frame(t_bvars *vars)
 {
 	vars->frame++;
 	if (vars->frame > 7)
@@ -39,7 +39,7 @@ void	update_frame(t_vars *vars)
 	draw(vars);
 }
 
-void	boom(t_vars *vars)
+void	boom(t_bvars *vars)
 {
 	int	i;
 

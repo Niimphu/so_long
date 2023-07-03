@@ -6,13 +6,13 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 14:40:04 by yiwong            #+#    #+#             */
-/*   Updated: 2023/06/28 23:56:13 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/07/03 15:42:47 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../dep/so_long.h"
+#include "../../dep/so_long_bonus.h"
 
-int	move_enemies(t_vars *vars)
+int	move_enemies(t_bvars *vars)
 {
 	t_ent	*enemies;
 
@@ -26,7 +26,7 @@ int	move_enemies(t_vars *vars)
 	return (0);
 }
 
-int	move_enemy(t_vars *vars, t_ent *enemies, int target[2])
+int	move_enemy(t_bvars *vars, t_ent *enemies, int target[2])
 {
 	vars->map[target[Y]][target[X]] = enemies->id;
 	vars->map[enemies->coords[Y]][enemies->coords[X]] = '0';
@@ -48,7 +48,7 @@ int	flip_enemy(t_ent *enemies)
 	return (0);
 }
 
-int	enemy_walked_into_player(t_vars *vars, t_ent *enemies, int target[2])
+int	enemy_walked_into_player(t_bvars *vars, t_ent *enemies, int target[2])
 {
 	vars->map[target[Y]][target[X]] = 'B';
 	vars->map[enemies->coords[Y]][enemies->coords[X]] = '0';
