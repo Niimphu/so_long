@@ -6,7 +6,7 @@
 /*   By: yiwong <yiwong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:54:16 by yiwong            #+#    #+#             */
-/*   Updated: 2023/07/03 15:46:07 by yiwong           ###   ########.fr       */
+/*   Updated: 2023/07/04 01:17:24 by yiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,6 @@ void	boom(t_bvars *vars);
 int		is_enemy_move_valid(t_bvars *vars, int i, int j);
 int		is_enemy_in_target(t_bvars *vars, int target[2]);
 int		draw_enemy(t_bvars *vars, int x, int y);
-int	move_enemies(t_bvars *vars);
+int		move_enemies(t_bvars *vars);
 
 #endif
